@@ -146,6 +146,7 @@ Use WebSearch and WebFetch for everything the Python script does NOT provide. Ru
 
 **宏观经济指标**:
 - `current federal reserve interest rate` / `美联储 当前基准利率`
+- `China PBOC current LPR 1-year 5-year` / `中国人民银行 当前 LPR 1年 5年` / `PBOC 7-day reverse repo rate`
 - `current US CPI PPI inflation data` / `中国 CPI PPI 最新数据`
 - `<公司名称> geopolitical risks supply chain`
 
@@ -188,8 +189,10 @@ Tag every monetary value you extract with its original currency, and convert to 
 Save the Markdown at:
 
 ```
-{BASE_DIR}/01_basic_data/{STOCK_CODE}_{COMPANY_NAME}_{TIMESTAMP}.md
+{BASE_DIR}/01_basic_data/basic_data.md
 ```
+
+（`BASE_DIR` already encodes `{TIMESTAMP}_{QUERY_SLUG}_{TOOL_NAME}_{MODEL_NAME}`, so inner filenames stay short.）
 
 **File template:**
 
@@ -223,8 +226,9 @@ Save the Markdown at:
 ## 一、 外部环境 (External Environment)
 
 ### 1. 宏观经济指标 (Macro)
-- **利率水平：** {填入搜索得到的当前基准利率及政策方向}
-- **通胀数据 (CPI/PPI)：** {最新 CPI/PPI 数据及趋势}
+- **美联储基准利率 (Fed Funds Rate)：** {当前区间及最近政策方向}
+- **中国央行基准利率 (PBOC)：** {最新 1年期 LPR / 5年期 LPR，及 7 天逆回购利率，政策方向}
+- **通胀数据 (CPI/PPI)：** {中美最新 CPI/PPI 数据及趋势}
 - **地缘政治风险：** {与该公司相关的地缘政治风险}
 
 ### 2. 行业特征指标 (Industry)
@@ -277,12 +281,12 @@ For each of the 6 analysts:
 3. Launch a `general-purpose` Task agent with a prompt containing:
    - The full persona body as role/system context
    - The user's original question
-   - Basic data file path: `{BASE_DIR}/01_basic_data/{STOCK_CODE}_{COMPANY_NAME}_{TIMESTAMP}.md`
+   - Basic data file path: `{BASE_DIR}/01_basic_data/basic_data.md`
    - Stock metadata: `STOCK_CODE`, `COMPANY_NAME`, `CURRENT_PRICE {CURRENCY}`, `PRICE_AS_OF`, `TIMESTAMP`
    - **Currency rule (restate explicitly):** primary currency is `{CURRENCY}`; every monetary value must be explicitly labeled with currency; non-primary currencies must be converted with a noted exchange rate.
-   - Output paths:
-     - Extra research data → `{BASE_DIR}/02_extra_data/{STOCK_CODE}_{COMPANY_NAME}_{TIMESTAMP}_<analyst-name>.md`
-     - Investment opinion → `{BASE_DIR}/03_answers/{STOCK_CODE}_{COMPANY_NAME}_{TIMESTAMP}_<analyst-name>.md`
+   - Output paths (use the analyst short name, i.e. filename stem of the agent .md):
+     - Extra research data → `{BASE_DIR}/02_extra_data/<analyst-name>.md` (e.g. `buffett-analyst.md`)
+     - Investment opinion → `{BASE_DIR}/03_answers/<analyst-name>.md`
 
 ### The 6 analysts (dispatch all in parallel)
 
@@ -307,15 +311,15 @@ Once all 6 analyst agents complete:
    - User's original question
    - `STOCK_CODE`, `COMPANY_NAME`, `CURRENT_PRICE {CURRENCY}`, `PRICE_AS_OF`
    - **Currency rule (restated):** primary currency `{CURRENCY}`; all money values explicitly labeled and consistent.
-   - Paths to all 6 analyst answer files in `{BASE_DIR}/03_answers/`
+   - Paths to all 6 analyst answer files in `{BASE_DIR}/03_answers/` (e.g. `buffett-analyst.md`, `munger-analyst.md`, …)
    - Timestamp `TIMESTAMP`, tool `TOOL_NAME`, model `MODEL_NAME`
-   - Output: `{BASE_DIR}/04_summary/{STOCK_CODE}_{COMPANY_NAME}_{TIMESTAMP}_summary.md`
+   - Output: `{BASE_DIR}/04_summary/summary.md`
 
 ---
 
 ## 步骤八：展示最终总结
 
-Read `{BASE_DIR}/04_summary/{STOCK_CODE}_{COMPANY_NAME}_{TIMESTAMP}_summary.md` and display the full contents to the user.
+Read `{BASE_DIR}/04_summary/summary.md` and display the full contents to the user.
 
 ---
 
