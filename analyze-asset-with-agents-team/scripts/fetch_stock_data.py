@@ -174,6 +174,7 @@ def build_trend_description(df: pd.DataFrame, label: str, currency: str) -> str:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
+    parser.add_argument("--asset-class", default="stock", help="Asset class tag (default: stock)")
     parser.add_argument("--ticker", required=True, help="Ticker symbol (e.g. AAPL, 00700, 600519)")
     parser.add_argument("--market", required=True, help="Market: US | HK | A")
     parser.add_argument("--output-dir", required=True, help="Absolute path to {BASE_DIR}/01_basic_data")
