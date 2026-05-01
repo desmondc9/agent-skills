@@ -1,6 +1,6 @@
 ---
 name: analyze-asset-with-agents-team
-version: 1.0.0
+version: 1.1.0
 description: "Use this skill whenever the user asks to analyze, research, evaluate, or get a recommendation on any investment asset — a publicly listed stock (US NYSE/NASDAQ, HK HKEX, A-share SSE/SZSE), a cryptocurrency or token (BTC, ETH, SOL, DeFi governance tokens, etc.), or a privately held company (Stripe, OpenAI, SpaceX, 字节跳动, etc.) — or mentions such an asset in an investment context. Triggers include: '分析XX股票', 'should I buy NVDA', '值得投资吗', 'analyze AAPL', 'analyze BTC', 'is ETH a buy', 'is Stripe a good investment', '帮我研究一下腾讯', '现在能买XX吗', '字节跳动值不值得买', 'OpenAI估值'. The skill auto-detects asset class, loads the matching profile (asset_profiles/<class>.md) for data sources, macro/fundamental/market queries, and output template, then runs a comprehensive multi-expert workflow: (1) identifies the asset, (2) fetches price history + charts via a per-class Python script (stock via akshare/yfinance, crypto via CoinGecko/Binance; private companies skip this step), (3) gathers MECE baseline data via WebSearch using the profile's query sets, (4) dispatches 6 analyst agents IN PARALLEL — Warren Buffett, Charlie Munger, Cathie Wood, 王煜全 (Wang Yuquan), 招财大牛猫, 段永平 — each applying their framework to this specific asset class and producing independent research + a recommendation, then (5) runs a supervisor agent to synthesize all six perspectives into a final structured report. Do NOT use this skill for non-investment questions about an asset, portfolio optimization, tax advice, or real-time trading signals."
 ---
 
@@ -22,15 +22,44 @@ Adding a new class (ETF, commodity, real estate) = drop a new `asset_profiles/<c
 
 ---
 
+## 跨步骤规则：报告输出语言 (Final Report Language — 简体中文)
+
+**Every markdown file produced by this skill — `01_basic_data/basic_data.md`, all files in `02_extra_data/`, all files in `03_answers/`, and `04_summary/summary.md` — MUST be written in 简体中文 (Simplified Chinese).** This applies to every analyst agent and the supervisor.
+
+Rules:
+1. **Process is unrestricted, output is Chinese.** Agents may think, plan, search the web, read documents, and call tools in any language they like (English search queries often retrieve better results, that is fine). What matters is the **content of the markdown files written to disk**: every section heading, every prose paragraph, every bullet, every table caption, and every "如果分析师说话" first-person quote MUST be in 简体中文.
+2. **Proper nouns and technical terms may stay in their original form.** Tickers (`AAPL`, `00700.HK`, `300750.SZ`), company names (`Apple Inc.`, `Tencent Holdings`), persona names (`Cathie Wood`, `Buffett`), metric abbreviations (`PE`, `PB`, `ROE`, `FCF`, `DCF`, `TAM`, `CAGR`, `TRL`), framework names (`Wright's Law`, `S-curve`), currencies (`USD`, `HKD`, `CNY`), and direct quotes from English-language sources are all fine to leave in English. The surrounding analytical prose is Chinese.
+3. **Quoted source material may stay in original language**, but every quote should be followed by a one-line Chinese paraphrase if the original is not Chinese.
+4. **Every analyst-agent dispatch prompt and the supervisor dispatch prompt must restate this rule explicitly**, alongside the currency rule below.
+
+---
+
 ## 跨步骤规则：货币单位统一 (Currency-Unit Consistency)
 
-**In every file produced by this skill, every monetary value MUST be explicitly labeled with its currency** (USD / HKD / CNY / etc.). The report's **primary currency** (`CURRENCY`) is determined in Step 1 from the asset profile: stocks → trading currency of the exchange; crypto → `USD`; private companies → usually `USD` for US companies, confirm for non-US.
+**In every file produced by this skill, every monetary value MUST be explicitly labeled with its currency** (USD / HKD / CNY / etc.). The report's **primary currency** (`CURRENCY`) is determined in Step 1 from the asset profile: stocks → trading currency of the primary listing; crypto → `USD`; private companies → usually `USD` for US companies, confirm for non-US.
 
 Rules:
 1. All prices, market caps, revenue, FCF, target prices, valuations, funding rounds, TVL, etc. must carry an explicit currency suffix — e.g. `175.23 USD`, `¥2,145 亿 CNY`, `HK$ 420.5`, `95,000 USD` (for BTC).
 2. If a source cites a different currency (e.g. a Wall Street estimate for a HK company quoted in USD, or a Chinese private company round quoted in CNY while the report uses USD), **convert to the primary currency** and note the conversion: `折合 USD ~= 22.40 (汇率 7.82, 2026-04-16)`.
 3. Never mix currencies implicitly in the same table or sentence without explicit labels.
-4. Every analyst agent and the supervisor must follow this rule. Pass the primary currency and the requirement explicitly in their prompts.
+4. **For cross-listed stocks (see next rule), normalize all comparable metrics to a single currency for the cross-market comparison table — preferred order: CNY for primarily-China-revenue businesses, USD otherwise.** Always disclose the FX rate and the as-of date.
+5. Every analyst agent and the supervisor must follow this rule. Pass the primary currency and the requirement explicitly in their prompts.
+
+---
+
+## 跨步骤规则：跨市场上市处理 (Cross-Listed Stocks — A股 / 港股 / 美股 ADR)
+
+When `ASSET_CLASS = stock`, many companies are listed on **more than one exchange** (e.g. 宁德时代 `300750.SZ` + `03750.HK`; 比亚迪 `002594.SZ` + `01211.HK`; 阿里巴巴 `BABA` NYSE + `09988.HK`; 京东 `JD` NASDAQ + `09618.HK`; 中国人寿 `601628.SS` + `02628.HK` + `LFC` NYSE). The skill MUST detect these cases and analyze **all listings together**.
+
+Rules:
+1. **Detect cross-listing during Step 1c** via WebSearch (`<ASSET_NAME> dual listing A股 H股`, `<ASSET_NAME> ADR HKEX SSE SZSE`). If only one listing exists, set `IS_CROSS_LISTED = false` and proceed normally.
+2. **If cross-listed**, populate a `LISTINGS` array — one entry per market — with `{ASSET_ID, ASSET_VENUE, MARKET, CURRENCY}`. Pick a `PRIMARY_VENUE` (default: home market — A-share for mainland-China companies, US for US companies — confirm via market-cap weight if ambiguous). The report's `CURRENCY` field is the primary venue's trading currency.
+3. **Step 3 fetches price + chart data from EVERY listing in `LISTINGS`** — invoke the data-fetch script once per market (run them in parallel). Each listing produces its own `current_price` / `as_of_date` / `daily_chart_relpath` / `weekly_chart_relpath`. Charts are stored under `01_basic_data/assets/` with the market suffix in the filename (the script already namespaces by ticker, so no changes are needed beyond multiple invocations).
+4. **Step 4 adds cross-market queries** (see `stock.md` profile `## market_queries`) — A/H premium-discount, ADR-vs-local arbitrage, liquidity (ADTV) comparison, southbound/northbound flow direction.
+5. **Step 5's `basic_data.md` includes a "跨市场对比" section** showing each listing's price, P/E, P/B, ADTV, market cap (all normalized to ONE currency — typically CNY or USD, with FX rate noted), and the implied A/H or ADR premium-discount.
+6. **Step 6 dispatches each analyst with the full `LISTINGS` context, not just one ticker.** Each analyst forms ONE consolidated view of the underlying business but must comment on whether one listing is materially cheaper, more liquid, or more accessible to the user's likely venue. The currency rule kicks in: every cross-market money figure carries its currency tag.
+7. **Step 7's supervisor MUST produce an explicit "跨市场首选 (Preferred Venue)" recommendation** in the final summary — naming which listing offers better investment value and explaining the reason (cheaper valuation / better liquidity / lower friction / regulatory access / dividend tax). If listings are roughly equivalent, say so explicitly with the trade-offs.
+8. If `IS_CROSS_LISTED = false`, skip the cross-market sections entirely (do NOT pad with "N/A" stubs).
 
 ---
 
@@ -61,16 +90,22 @@ Where `<skill-dir>` is typically `~/.claude/skills/analyze-asset-with-agents-tea
 Following the profile's `## identification` guidance, use WebSearch to confirm the asset and fill in this **unified variable set** that every downstream step reads:
 
 - `ASSET_CLASS` — `stock` / `crypto` / `private`
-- `ASSET_ID` — canonical identifier (`AAPL`, `00700.HK`, `600519.SS`, `BTC`, `ETH`, `stripe`, `openai`)
+- `ASSET_ID` — canonical identifier of the **primary listing** (`AAPL`, `00700.HK`, `600519.SS`, `BTC`, `ETH`, `stripe`, `openai`)
 - `ASSET_NAME` — full human-readable name
-- `ASSET_VENUE` — exchange / chain / domicile (see profile)
-- `CURRENCY` — primary reporting currency
+- `ASSET_VENUE` — exchange / chain / domicile of the primary listing (see profile)
+- `CURRENCY` — primary reporting currency (the primary listing's trading currency for stocks)
 - Any **class-specific helper vars** defined in the profile:
-  - stock → `TICKER`, `MARKET` (`US` / `HK` / `A`)
+  - stock → `TICKER`, `MARKET` (`US` / `HK` / `A`); plus cross-listing vars (see below)
   - crypto → `COIN_ID` (CoinGecko), `SYMBOL`
   - private → no helper vars; valuation data comes from WebSearch only
 
-If multiple candidates match the user's input, ask for clarification before proceeding.
+**For `ASSET_CLASS = stock`, also resolve cross-listing variables (see "跨市场上市处理" rule above):**
+
+- `IS_CROSS_LISTED` — `true` if the same company has more than one public listing, else `false`. Determine via WebSearch (`<ASSET_NAME> dual listing A H share`, `<ASSET_NAME> ADR HKEX`).
+- `LISTINGS` — array of `{ticker, market, venue, currency}` for every public listing of the same underlying company. For a single-listing stock, this array has one entry. For 宁德时代, it has two (`{300750, A, SZSE, CNY}` and `{03750, HK, HKEX, HKD}`). For 阿里巴巴, two (`{BABA, US, NYSE, USD}` and `{09988, HK, HKEX, HKD}`).
+- `PRIMARY_VENUE` — the `LISTINGS` entry chosen as the primary one (use home market by default; for ambiguous cases, the listing with the larger market cap / ADTV).
+
+If multiple **distinct companies** match the user's input (e.g. "Tesla" might mean a Chinese namesake on SZSE), ask for clarification before proceeding. If the user names a single company that happens to be cross-listed, **do not** ask which market to use — analyze all and recommend a preferred venue in the final report.
 
 Note: `CURRENT_PRICE` is **not** set here — it is fetched by the profile's data script in Step 3 (for `stock` and `crypto`) or by WebSearch from primary funding sources (for `private`).
 
@@ -150,7 +185,7 @@ All subsequent paths are relative to `{BASE_DIR}/`. For `ASSET_CLASS = private`,
 
 Look up the **`## data_fetch_command`** section in the asset profile loaded in Step 1b and execute it. The profile tells you which script to run (if any), what arguments to pass, and which JSON fields to capture.
 
-- `stock` → runs `scripts/fetch_stock_data.py` (akshare → yfinance fallback) and writes 3Y daily + weekly K-line PNGs.
+- `stock` → runs `scripts/fetch_stock_data.py` (akshare → yfinance fallback) and writes 3Y daily + weekly K-line PNGs. **If `IS_CROSS_LISTED = true`, run the script ONCE PER LISTING in `LISTINGS` (in parallel where possible).** Capture each listing's JSON output into a per-listing record. The K-line filenames already include the ticker, so charts from different markets do not collide.
 - `crypto` → runs `scripts/fetch_crypto_data.py` (CoinGecko → Binance fallback) and writes 3Y daily + weekly candlestick PNGs.
 - `private` → **no script is run.** Fill `CURRENT_PRICE` / `PRICE_AS_OF` / `data_source` from WebSearch on primary funding rounds per the profile's `## data_fetch_command` instructions.
 
@@ -214,7 +249,13 @@ For each of the 6 analysts:
      - `ASSET_ID`, `ASSET_NAME`, `ASSET_VENUE`
      - `CURRENT_PRICE {CURRENCY}` (for private companies pass "last-round implied price {CURRENCY}" or "N/A" with the latest post-money valuation and date)
      - `PRICE_AS_OF`, `TIMESTAMP`
-   - **Currency rule (restate explicitly):** primary currency is `{CURRENCY}`; every monetary value must be explicitly labeled with currency; non-primary currencies must be converted with a noted exchange rate.
+   - **For `ASSET_CLASS = stock`**, also pass:
+     - `IS_CROSS_LISTED` (`true` / `false`)
+     - `LISTINGS` — full array; for each entry include `ticker`, `market`, `venue`, `currency`, `current_price`, `as_of_date`
+     - `PRIMARY_VENUE` — which entry to treat as the primary listing
+     - **Cross-listing instruction (only when `IS_CROSS_LISTED = true`):** "Form ONE consolidated view of the underlying business. In the answer file, dedicate one subsection to comparing the listings — which is materially cheaper / more liquid / better for a typical investor — and feed your venue preference (or no preference, with reasons) up to the supervisor."
+   - **Output language rule (restate explicitly):** "Your final answer file MUST be written in 简体中文. Tickers, persona names, metric abbreviations (PE, ROE, FCF, DCF, TAM, CAGR, TRL), and direct English quotes are fine; everything else — section prose, bullets, table captions, your first-person 'if I spoke' quote — is Simplified Chinese. Process language (search queries, tool calls, internal thinking) is unrestricted."
+   - **Currency rule (restate explicitly):** primary currency is `{CURRENCY}`; every monetary value must be explicitly labeled with currency; non-primary currencies must be converted with a noted exchange rate. For cross-listed stocks, normalize the cross-market comparison table to a single currency (CNY for primarily-China-revenue companies, USD otherwise) and disclose the FX rate.
    - Output paths (use the analyst short name, i.e. filename stem of the agent .md):
      - Extra research data → `{BASE_DIR}/02_extra_data/<analyst-name>.md` (e.g. `buffett-analyst.md`)
      - Investment opinion → `{BASE_DIR}/03_answers/<analyst-name>.md`
@@ -243,7 +284,10 @@ Once all 6 analyst agents complete:
    - The supervisor persona body
    - User's original question
    - `ASSET_CLASS`, `ASSET_ID`, `ASSET_NAME`, `ASSET_VENUE`, `CURRENT_PRICE {CURRENCY}` (or "N/A — last-round valuation" for private), `PRICE_AS_OF`
-   - **Currency rule (restated):** primary currency `{CURRENCY}`; all money values explicitly labeled and consistent.
+   - **For `ASSET_CLASS = stock`**: also pass `IS_CROSS_LISTED`, the full `LISTINGS` array (with each listing's ticker / venue / currency / current price / ADTV / market cap), and `PRIMARY_VENUE`.
+   - **Output language rule (restated):** "The summary file MUST be written in 简体中文. Tickers, persona names, metric abbreviations, and direct English quotes are fine; analytical prose, headings, and recommendations are Simplified Chinese."
+   - **Currency rule (restated):** primary currency `{CURRENCY}`; all money values explicitly labeled and consistent. For cross-listed stocks, the cross-market comparison table normalizes to one currency (CNY for primarily-China-revenue businesses, USD otherwise) and discloses the FX rate.
+   - **Cross-listing instruction (only when `IS_CROSS_LISTED = true`):** "The summary MUST contain a section titled `## 跨市场首选 (Preferred Venue Recommendation)` that names which listing offers better investment value and explains the reason — typically one of: 估值更低 (lower P/E, P/B, or A/H discount), 流动性更好 (higher ADTV, narrower bid-ask), 更具性价比 (better risk-adjusted entry), 投资者准入便利 (regulatory or tax friction for the user's likely venue), 股息税差 (dividend withholding-tax difference). If two listings are roughly equivalent, say so explicitly and list the trade-offs."
    - Paths to all 6 analyst answer files in `{BASE_DIR}/03_answers/` (e.g. `buffett-analyst.md`, `munger-analyst.md`, …)
    - Timestamp `TIMESTAMP`, tool `TOOL_NAME`, model `MODEL_NAME`
    - Output: `{BASE_DIR}/04_summary/summary.md`
