@@ -2,7 +2,7 @@
 
 A collection of Claude Code skills for document processing, investment analysis, and productivity workflows.
 
-## Skills
+## Skills 
 
 ### [markdown-to-docx](./markdown-to-docx/)
 
@@ -77,6 +77,40 @@ analyze SpaceX as a private investment
 See the [skill README](./analyze-asset-with-agents-team/SKILL.md) for the full profile-driven workflow and agent personas.
 
 **Disclaimer:** AI-generated analysis for informational purposes only. Not investment advice.
+
+---
+
+### [deep-company-analysis](./deep-company-analysis/)
+
+Generates a structured deep-dive research report on any **company, stock, or crypto project** from both **growth and value investing** perspectives. Uses an 8-dimension framework covering industry dynamics, management quality, financials, growth drivers, valuation, policy & geopolitics, technology disruption risks, and a crypto-specific appendix.
+
+**Features:**
+- Executive Summary that identifies the 5 highest-impact dimensions with quantitative evidence and tracking KPIs
+- Dual-lens analysis: every dimension examined from both growth-investing and value-investing angles
+- Strict output discipline: no "buy/sell/hold" recommendations; all data sourced; speculative claims marked; inapplicable dimensions explicitly labeled
+- Competitive benchmarking against peers and industry medians for all key metrics
+- 3-year / 5-year / 10-year trend analysis (or actual history if < 10 years)
+- Dedicated crypto appendix (tokenomics, on-chain metrics, governance risks, MEV, regulatory status) when analyzing blockchain/Web3 projects
+- Per-dimension 200-word summaries + a 12-month "综合观察清单" of trackable catalysts
+
+**Install:**
+```bash
+npx skills add desmondc9/agent-skills@deep-company-analysis -g
+```
+
+**Usage:** Just ask naturally — the skill auto-triggers on deep-research intent:
+
+```
+深度分析一下腾讯
+帮我调研一下 NVDA
+research Apple as a long-term investment
+OpenAI 的基本面怎么样
+analyze ETH from a fundamentals perspective
+```
+
+**Prerequisites:** A Claude Code environment with `WebSearch` and `WebFetch` tools enabled.
+
+See the [skill README](./deep-company-analysis/SKILL.md) for the full workflow and [REFERENCE.md](./deep-company-analysis/REFERENCE.md) for the complete 8-dimension analysis template.
 
 ---
 
