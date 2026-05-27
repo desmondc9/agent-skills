@@ -114,6 +114,42 @@ See the [skill README](./deep-company-analysis/SKILL.md) for the full workflow a
 
 ---
 
+### [transcribing-meeting-recordings](./transcribing-meeting-recordings/)
+
+Converts any meeting recording (`.mp4` / `.mov` / `.mkv` / `.wav` / `.m4a` / `.mp3`) into a cleaned, timestamped **SRT transcript with real participant names** — especially Chinese / multilingual content. Combines **whisperx** (faster-whisper + alignment + pyannote diarization) with a Microsoft Teams / Zoom **video-frame trick**: the active-speaker banner in the recording is read off the frame, letting you map anonymized `SPEAKER_XX` clusters onto the real names of the people in the call.
+
+**Features:**
+- Single-pass whisperx pipeline: ASR (large-v3) + word-level alignment + pyannote speaker diarization, tuned to fit **8 GB GPUs** (`--compute_type int8 --batch_size 4`)
+- Post-processor (`make_srt.py`) that strips Whisper's YouTube-training hallucinations (`请不吝点赞订阅...`), spaces CJK/ASCII boundaries (`shipment加A` → `shipment 加 A`), smooths short diarization "flake" cues, and merges consecutive same-speaker cues
+- **Speaker identification via video frames** — extract one frame per `SPEAKER_XX` at a clean utterance, read the Teams / Zoom active-speaker banner, fill in a markdown mapping table; the SRT then carries real names
+- Handles pyannote **over-segmentation** (one person split into 2+ clusters) by collapsing duplicate names during merge
+- Per-meeting `speakers.md` mapping + parent-folder `speakers.md` roster pattern for **cross-meeting** name tracking (pyannote labels are not stable across recordings; aliases incl. Whisper Chinese-name homophones are recorded)
+- Captures every failure mode encountered in practice — Python 3.14 / torchaudio incompatibility, 3 separate Hugging Face license walls, CUDA OOM at default batch size, Whisper hallucinations during silence — so the next run avoids them
+
+**Install:**
+```bash
+npx skills add desmondc9/agent-skills@transcribing-meeting-recordings -g
+```
+
+**Usage:** Drop a recording into a folder, then:
+
+```bash
+ffmpeg -i meeting.mp4 -vn -ac 1 -ar 16000 -c:a pcm_s16le audio.wav
+whisperx audio.wav --model large-v3 --language zh --diarize \
+  --diarize_model pyannote/speaker-diarization-3.1 \
+  --compute_type int8 --batch_size 4 --output_format json
+cp <skill>/templates/speakers.template.md ./speakers.md
+python3 <skill>/scripts/make_srt.py   # → transcript.srt
+```
+
+Then for each `SPEAKER_XX`, extract a frame (`ffmpeg -ss <t> -i meeting.mp4 -frames:v 1 spk_XX.jpg`), read the Teams banner, fill in the name in `speakers.md`, and re-run `make_srt.py`.
+
+**Prerequisites:** `ffmpeg`, Python 3.11 (**not 3.14** — torchaudio incompatibility), `uv tool install whisperx --python 3.11`, an NVIDIA GPU (≥ 6 GB recommended), and acceptance of three pyannote gated repos on Hugging Face (`speaker-diarization-3.1`, `segmentation-3.0`, `speaker-diarization-community-1`).
+
+See the [skill README](./transcribing-meeting-recordings/SKILL.md) for the full pipeline, prerequisites, and the Common Mistakes table.
+
+---
+
 ## License
 
 Apache 2.0 — see [LICENSE](./LICENSE).
