@@ -18,7 +18,7 @@
 > 4. Re-run `python3 /path/to/make_srt.py` — the `transcript.srt` will use
 >    real names instead of `SPEAKER_XX`.
 > 5. Promote any newly identified person to the cross-meeting roster at
->    `../speakers.md` (one level up from this meeting folder).
+>    `../roster.md` (one level up from this meeting folder).
 
 ---
 
