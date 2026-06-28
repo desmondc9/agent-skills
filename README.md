@@ -150,6 +150,39 @@ See the [skill README](./transcribing-meeting-recordings/SKILL.md) for the full 
 
 ---
 
+### [analyze-value](./analyze-value/)
+
+Estimates the **intrinsic value** of a company, stock, or cash-flow-generating asset (commercial real estate, 收租物业) using the valuation methodology from 吴军《财商训练课·企业估值》: **ignore cost and historical price — value only depends on how much free cash flow the asset will keep producing, and how risky that is.** Implements risk-adjusted discounted cash flow (DCF) with a CAPM-style β discount, plus a baseline check for risky fixed-income (理财 / 票据 / 债券) against the risk-free deposit rate.
+
+**Features:**
+- Risk-adjusted DCF: `Value = Σ FCFₜ / [1 + r + β·(rm − r)]ᵗ` — higher risk (β) discounts harder, lowering valuation
+- Free-cash-flow based, **not** net profit (易造假、要再投入), and **cost-blind** (固定资产/历史造价/历史股价 don't enter the formula)
+- `dcf_valuation.py` script outputs per-year discounted FCF, ΣDCF, and valuation under **two conventions** (standard present-value, and 吴军's equivalent-deposit-principal), validated against the article's worked examples
+- Expected-return mode for risky fixed income: probability-weighted payoff discounted back and compared to the bank baseline
+- Commercial-real-estate guidance (supply/demand already lives in the FCF; self-occupied homes excluded)
+- Discipline: gives a valuation **range with β / growth sensitivity**, labels currency and assumptions, no buy/sell calls — 追求方向性正确，不追求精确
+
+**Install:**
+```bash
+npx skills add desmondc9/agent-skills@analyze-value -g
+```
+
+**Usage:** Ask naturally — the skill auto-triggers on valuation intent:
+
+```
+这家公司值多少钱？帮我估个值
+用 DCF 给宁德时代估值
+NVDA 现在是高估还是低估？
+帮我看看这个商铺值不值这个价
+这份年化 5% 的理财，相对存银行到底值多少？
+```
+
+**Prerequisites:** Python 3 (standard library only — no extra packages). `WebSearch` / `WebFetch` recommended for gathering the cash-flow inputs.
+
+See the [skill README](./analyze-value/SKILL.md) for the workflow and [REFERENCE.md](./analyze-value/REFERENCE.md) for the full method, formulas, and the article's worked examples.
+
+---
+
 ## License
 
 Apache 2.0 — see [LICENSE](./LICENSE).
