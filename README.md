@@ -24,7 +24,9 @@ See the [skill README](./markdown-to-docx/SKILL.md) for full usage and troublesh
 
 ---
 
-### [analyze-asset-with-agents-team](./analyze-asset-with-agents-team/)
+### [analyze-asset-with-agents-team](./analyze-asset-with-agents-team/) — ⚠️ DEPRECATED
+
+> **已废弃，不再维护。** 保留仅供历史参考，请勿用于新的分析任务。
 
 Runs a comprehensive multi-expert investment analysis across **any asset class** — publicly listed stocks (US / HK / A-share), cryptocurrencies (BTC, ETH, SOL, any token), or privately held companies (Stripe, OpenAI, SpaceX, 字节跳动) — using 6 parallel analyst personas plus a synthesis supervisor.
 

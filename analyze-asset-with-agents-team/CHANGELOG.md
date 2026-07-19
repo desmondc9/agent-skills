@@ -1,5 +1,9 @@
 # Changelog
 
+## Deprecated — 2026-07-19
+
+This skill is **deprecated** and no longer maintained. It is kept in the repository for historical reference only and should not be used for new analysis tasks. The `description` in `SKILL.md` now carries a `[DEPRECATED]` prefix so agents will not auto-select it.
+
 ## v1.1.0 — 2026-05-01
 
 Two cross-cutting changes that apply across every agent and the orchestrator.
