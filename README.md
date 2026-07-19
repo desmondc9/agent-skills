@@ -183,6 +183,38 @@ See the [skill README](./analyze-value/SKILL.md) for the workflow and [REFERENCE
 
 ---
 
+### [analyze-dip](./analyze-dip/)
+
+Judges whether a **sharp crash / big pullback** in a stock, cryptocurrency, or other asset is a **buy-the-dip opportunity or a time to exit**, using the 10-step framework from the video 《AI硬件股暴跌，现在该抄底还是逃命？我的10步判断框架》 (Micron as the running case). The core discipline: never judge by *how much it dropped* or *whether the news sounds good/bad* — distinguish **「跌的是情绪」 from 「跌的是基本面/盈利逻辑」**.
+
+**Features:**
+- 10-question checklist, one key question per step: earnings-logic revisions (EPS revision), multi-model fair value (DCF + multiples), collective analyst re-pricing, growth quality (revenue/EPS growth, margins, key businesses like HBM), free-cash-flow trend, industry-level change, moat depth, balance-sheet safety, fundamentals-vs-sentiment, and the final **empty-position test** ("if I held none today, would I buy at this price?")
+- Gate logic: if step 1 (earnings logic) fails, the rest don't matter — the framework says exit, not dip-buy
+- Crypto adaptation table mapping each step's stock metrics to on-chain/protocol equivalents (fee revenue, NVT, MVRV, treasury runway, token unlocks)
+- Structured output: a 10-step evidence matrix (✅/⚠️/❌) plus a directional verdict — 偏抄底（情绪错杀）/ 偏离场（逻辑已变）/ 证据不足 — with sources and assumptions labeled
+- Doubles as a pre-purchase checklist before long-term holding (the original author's own usage)
+- Platform-agnostic data gathering (Investing Pro, filings, WebSearch); no target prices, no investment advice
+
+**Install:**
+```bash
+npx skills add desmondc9/agent-skills@analyze-dip -g
+```
+
+**Usage:** Ask naturally — the skill auto-triggers on crash/pullback decision intent:
+
+```
+NVDA 跌了 20%，现在该抄底还是离场？
+BTC 暴跌，是抄底机会还是该跑？
+帮我看看美光这次回调要不要补仓
+buy the dip or get out of TSLA?
+```
+
+**Prerequisites:** A Claude Code environment with `WebSearch` / `WebFetch` for gathering earnings estimates, valuation data, analyst revisions, and sector news.
+
+See the [skill README](./analyze-dip/SKILL.md) for the workflow and [REFERENCE.md](./analyze-dip/REFERENCE.md) for the per-step criteria, historical panic-selloff cases, and the crypto adaptation table.
+
+---
+
 ## License
 
 Apache 2.0 — see [LICENSE](./LICENSE).
