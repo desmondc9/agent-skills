@@ -1,0 +1,1361 @@
+
+.live-entrance-wrap[data-v-217cb96c] {
+  margin-bottom: 30px
+}
+.live-entrance-wrap .section-title[data-v-217cb96c] {
+    padding-left: 10px;
+    font-size: 20px;
+    color: #000;
+    letter-spacing: 0;
+    line-height: 30px;
+    font-weight: bold;
+    display: flex;
+    align-items: center
+}
+.live-entrance-wrap .section-title .live-icon[data-v-217cb96c] {
+      margin-right: 10px;
+      font-size: 14px;
+      color: #fff;
+      width: 24px;
+      height: 24px;
+      display: inline-block;
+      border-radius: 50%;
+      position: relative;
+}
+.live-entrance-wrap .section-title .live-icon[data-v-217cb96c]::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+}
+.live-entrance-wrap .author[data-v-217cb96c] {
+    font-size: 14px;
+    color: #333;
+    letter-spacing: 0;
+}
+.live-entrance-wrap .reservation-num[data-v-217cb96c] {
+    position: absolute;
+    font-size: 12px;
+    color: #999;
+    letter-spacing: 0;
+    bottom: 10px;
+}
+
+
+.recommend-lit-box {
+  background: #fff;
+}
+.recommend-lit-box .vip-recommend-title {
+    padding-bottom: 10px;
+}
+.recommend-lit-box .section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.recommend-lit-box .recommend-title {
+    font-weight: bold;
+    font-size: 20px;
+    color: #333;
+    letter-spacing: 0;
+    line-height: 30px;
+    padding-left: 10px;
+}
+.recommend-lit-box .recommend-list {
+    position: relative
+}
+.recommend-lit-box .recommend-list .B2 {
+}
+.recommend-lit-box .recommend-list .B2 .detail {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between
+}
+.recommend-lit-box .recommend-list .B2 .detail .title {
+          display: -webkit-box;
+          overflow: hidden;
+          font-weight: 500;
+}
+.recommend-lit-box .recommend-list .B2 .detail .summary {
+          display: -webkit-box;
+          height: 36px;
+          overflow: hidden;
+          line-height: 18px;
+          -webkit-line-clamp: 2;
+}
+.recommend-lit-box .recommend-list .B2 .detail .tip {
+          margin-bottom: 5px;
+          display: -webkit-box;
+          overflow: hidden;
+          line-height: 18px;
+          -webkit-line-clamp: 1;
+}
+.recommend-lit-box.course-recommend-fixed {
+    position: fixed;
+    z-index: 100;
+    top: 330px;
+    left: 50%;
+    transform: translateX(240px);
+}
+
+
+.detail-header {
+  position: relative;
+  padding: 20px;
+  border-radius: 10px;
+  min-height: 160px;
+  box-sizing: content-box;
+}
+.detail-header.mobile-detail-header {
+    margin: 0 -30px 0 -25px;
+}
+.detail-header {
+}
+.detail-header .detail-header-main {
+    display: flex;
+    margin: 0 auto;
+    min-height: 160px;
+    max-height: 176px
+}
+.detail-header .detail-header-main .share-fill {
+      margin-left: 80px;
+}
+.detail-header .detail-header-main .cover {
+      position: relative;
+      border-radius: 5px;
+      margin-right: 10px;
+      float: left;
+      flex: 0 0 120px;
+      height: 160px
+}
+.detail-header .detail-header-main .cover .image {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+}
+.detail-header .detail-header-main .cover .label {
+        display: block;
+        position: absolute;
+        right: 4px;
+        bottom: 4px;
+        padding: 3px 4px;
+        border-radius: 3px;
+        background: rgba(0, 0, 0, 0.5);
+        font-size: 12px;
+        font-weight: 600;
+        text-align: center;
+        color: #fff;
+        letter-spacing: 0;
+        line-height: 12px;
+}
+.detail-header .detail-header-main .detail-header-left {
+      flex: 1;
+      margin: auto 0;
+      width: 460px
+}
+.detail-header .detail-header-main .detail-header-left .detail-title {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-line-clamp: 2;
+        color: #333;
+        font-family: PingFangSC-Medium, sans-serif;
+        letter-spacing: 0;
+        font-size: 26px;
+        line-height: 36px;
+}
+.detail-header .detail-header-main .detail-header-left .summary {
+        position: relative;
+        margin-top: 3px;
+        font-size: 14px;
+        line-height: 20px;
+        color: #666;
+}
+.detail-header .detail-header-main .detail-header-left .summary.course-summary {
+          min-height: 45px
+}
+.detail-header .detail-header-main .detail-header-left .summary.course-summary .info-main {
+            -webkit-line-clamp: 2 !important;
+}
+.detail-header .detail-header-main .detail-header-left .summary {
+}
+.detail-header .detail-header-main .detail-header-left .summary .info {
+          position: absolute;
+          z-index: 10;
+          top: 0;
+          left: 0;
+          padding-right: 20px
+}
+.detail-header .detail-header-main .detail-header-left .summary .info .info-main {
+            display: -webkit-box;
+            overflow: hidden;
+            -webkit-line-clamp: 1;
+}
+.detail-header .detail-header-main .detail-header-left .summary .info .info-main.info-main-unfold {
+              -webkit-line-clamp: 3;
+              height: 88px;
+              overflow-y: scroll;
+}
+.detail-header .detail-header-main .detail-header-left .summary .info .iget-icon-fold {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: inline-block;
+            transform: rotate(0deg);
+            transition: all 0.2s ease-in-out;
+            color: inherit;
+}
+.detail-header .detail-header-main .detail-header-left .summary .info .iget-icon-fold.icon-unfold {
+              transform: rotate(180deg);
+              transition: all 0.2s ease-in-out;
+}
+.detail-header .detail-header-main .detail-header-left .summary .audio-info {
+          font-size: 14px;
+          color: #666;
+          letter-spacing: 0;
+          line-height: 20px;
+}
+.detail-header .detail-header-main .detail-header-left .summary .tip {
+          padding-top: 10px;
+}
+.detail-header .detail-header-main .detail-header-left .summary .audio {
+          padding-top: 25px;
+}
+.detail-header .detail-header-main .detail-header-left .summary .price {
+          font-weight: bold;
+          padding-top: 26px;
+          font-size: 14px;
+          color: #ff6b00;
+          letter-spacing: 0;
+          line-height: 20px;
+}
+.detail-header .detail-header-main .detail-header-left .summary .price.vip-free,
+          .detail-header .detail-header-main .detail-header-left .summary .price.none-free {
+            margin-top: -5px;
+}
+.detail-header .detail-header-main .detail-header-left .summary .price.vip-free::after, .detail-header .detail-header-main .detail-header-left .summary .price.none-free::after {
+              display: inline-block;
+              position: relative;
+              top: 7px;
+              width: 72px;
+              height: 24px;
+              margin-left: 5px;
+              content: '';
+}
+.detail-header .detail-header-main .detail-header-left .summary .price.vip-free::after {
+            background: url(https://piccdn2.umiwi.com/fe-oss/default/MTU4MzY2NzU0MjE4.png) no-repeat 0 0 / 72px 24px;
+}
+.detail-header .detail-header-main .detail-header-left .summary .price.none-free::after {
+            background: url(https://piccdn2.umiwi.com/fe-oss/default/MTU4MzY2NzQ3ODc1.png) no-repeat 0 0 / 72px 24px;
+}
+.detail-header .detail-header-main .detail-header-left .btn-group {
+}
+.detail-header .detail-header-main .detail-header-left .btn-group button {
+          padding: 3px 15px;
+          min-height: 30px;
+          border-radius: 25px;
+          font-weight: 500;
+          text-align: center;
+          cursor: pointer;
+          font-size: 14px;
+          color: #333;
+          letter-spacing: 0;
+          line-height: 24px;
+}
+.detail-header .detail-header-main .detail-header-left .btn-group .lead-to-app {
+          color: #999;
+          background: #e5e5e5;
+          font-weight: 500;
+          cursor: default;
+}
+.detail-header .detail-header-main .detail-header-left .course-btn-group {
+        position: relative
+}
+.detail-header .detail-header-main .detail-header-left .course-btn-group button {
+          padding: 0;
+}
+.detail-header .detail-header-main .detail-header-left .course-btn-group .content {
+          padding-bottom: 0 !important;
+}
+.detail-header .detail-header-main .detail-header-left .course-btn-group .content {
+          display: inline-block;
+          margin: 3px 15px;
+          color: #fff;
+}
+.detail-header .detail-header-main .detail-header-left .course-btn-group .content.early-bird-wrapper {
+            position: relative
+}
+.detail-header .detail-header-main .detail-header-left .course-btn-group .content.early-bird-wrapper .early-bird-price {
+              padding-bottom: 12px;
+              font-size: 14px;
+              font-weight: 600;
+              line-height: 20px;
+}
+.detail-header .detail-header-main .detail-header-left .course-btn-group .content.early-bird-wrapper .original-price {
+              position: absolute;
+              left: 50%;
+              top: 20px;
+              text-decoration: line-through;
+              white-space: nowrap;
+              font-size: 20px;
+              font-weight: 700;
+              line-height: 22px;
+              opacity: 0.6;
+              transform-origin: 0 0;
+              transform: scale(0.5) translate(-50%, 0);
+}
+.detail-header .detail-header-main .detail-header-left .course-btn-group .off-shelf {
+          background-color: #e5e5e5 !important
+}
+.detail-header .detail-header-main .detail-header-left .course-btn-group .off-shelf .content {
+            color: #999 !important;
+}
+.detail-header .detail-header-main .detail-header-left .course-btn-group .unit {
+          display: inline-block;
+          margin-left: 4px;
+          font-size: 13px;
+}
+.detail-header .detail-header-main .detail-header-left .course-btn-group .last-learn {
+          position: absolute;
+          top: 37px;
+          left: 0;
+          padding: 8px 10px;
+          font-size: 14px;
+          color: #ff6b00;
+          border: 0.5px solid #ffbd8d;
+          border-radius: 5px;
+          background: #fff7f1;
+          max-width: 100%;
+}
+.detail-header .detail-header-main .detail-header-left .course-btn-group .last-learn .last-learn-text {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+}
+.detail-header .detail-header-main .detail-header-left .course-btn-group .last-learn::before {
+            z-index: 810;
+            position: absolute;
+            top: -5px;
+            left: 40px;
+            width: 10px;
+            height: 5px;
+            background: url(https://piccdn2.umiwi.com/fe-oss/default/MTU4NDMxMjU3NzMz.png) no-repeat 0 0 / 10px 5px;
+            content: '';
+}
+.detail-header .detail-header-main .detail-header-left .course-btn-group .early-bird-count-down {
+          margin-top: 10px;
+          display: flex;
+          align-items: center;
+          font-size: 12px;
+          color: #ff6b00
+}
+.detail-header .detail-header-main .detail-header-left .course-btn-group .early-bird-count-down .count-down {
+            font-size: 12px
+}
+.detail-header .detail-header-main .detail-header-left .course-btn-group .early-bird-count-down .count-down .count-down__number-block {
+              height: 16px;
+              width: 16px;
+              background: #fff;
+              font-size: 14px;
+              line-height: 18px;
+              color: #ff2929;
+}
+.detail-header .detail-header-main .detail-header-left .course-btn-group .early-bird-count-down .count-down .count-down__middle-content {
+              margin: 0 -5px;
+              height: 16px;
+              line-height: 16px;
+              font-size: 12px;
+              color: #ff6b00;
+}
+.detail-header .detail-header-main .detail-header-left .eBook-btn-group,
+      .detail-header .detail-header-main .detail-header-left .audioBook-btn-group {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-top: 10px
+}
+.detail-header .detail-header-main .detail-header-left .eBook-btn-group button, .detail-header .detail-header-main .detail-header-left .audioBook-btn-group button {
+          margin-right: 10px;
+}
+@media (min-width: 1024px) {
+.audio-info:hover {
+      color: #ff6b00 !important;
+}
+.audio-info:hover {
+      color: inherit;
+}
+.audio-info.info-unfold:hover {
+        color: #666 !important;
+}
+}
+@media (max-width: 767px) {
+.audioBook-btn-group {
+}
+.audioBook-btn-group button {
+      padding: 3px 10px !important;
+      margin-right: 0 !important;
+}
+.audioBook-btn-group .audio-vip {
+      margin-right: 5px !important;
+}
+}
+
+
+.purchase-popup {
+}
+.purchase-popup .box-content {
+}
+.purchase-popup .box-content .mask {
+      position: absolute;
+      top: 56px;
+      left: 38px;
+      width: 206px;
+      height: 206px;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.98);
+}
+.purchase-popup .box-content .mask.success {
+        padding-top: 108px;
+        background-image: url(https://piccdn2.umiwi.com/fe-oss/default/MTU5MzUwOTgyNzM3.png);
+        background-repeat: no-repeat;
+        background-position: 88px 68px;
+        background-size: 30px 30px;
+}
+.purchase-popup .box-content .mask.fail {
+        padding-top: 94px;
+        background-image: url(https://piccdn2.umiwi.com/fe-oss/default/MTU5MzUwOTkxNjE5.png);
+        background-repeat: no-repeat;
+        background-position: 85px 54px;
+        background-size: 30px 30px;
+        cursor: pointer
+}
+.purchase-popup .box-content .mask.fail .there {
+          color: #4a90e2;
+}
+.purchase-popup .box-content .bottom-tip {
+      margin-top: 7px;
+      font-size: 12px;
+      line-height: 18px;
+      color: #999;
+}
+.purchase-popup .box-content .iPhone-icon {
+      margin-right: 30px;
+}
+.purchase-popup .box-content .iPhone-icon::before {
+        display: inline-block;
+        position: relative;
+        top: 5px;
+        width: 22px;
+        height: 20px;
+        content: '';
+        background-image: url(https://piccdn2.umiwi.com/fe-oss/default/MTU5MzUxMTcyMjg1.png);
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: 20px 20px;
+}
+.purchase-popup .box-content .android-icon::before {
+        display: inline-block;
+        position: relative;
+        top: 5px;
+        width: 22px;
+        height: 20px;
+        content: '';
+        background-image: url(https://piccdn2.umiwi.com/fe-oss/default/MTU5MzUxMTc0MDI5.png);
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: 20px 20px;
+}
+.purchase-popup .box-content .wechat-icon::before {
+        display: inline-block;
+        position: relative;
+        top: 5px;
+        width: 20px;
+        height: 18px;
+        content: '';
+        background-image: url(https://piccdn2.umiwi.com/fe-oss/default/MTU5MzUwNzI3OTI1.png);
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: 20px 18px;
+}
+.purchase-popup .no-buy-entry-title {
+    margin: 10px 0;
+}
+
+
+.clearfix {
+  display: flex;
+}
+.lesson-video {
+  position: relative;
+  float: left;
+  margin-right: 10px;
+}
+.lesson-video img {
+    display: block;
+    width: 108px;
+    height: 60px;
+    border-radius: 5px;
+}
+.lesson-video .video-duration {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 10px;
+    font-weight: 500;
+    color: #fff;
+    height: 32px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 0 3px 3px 0;
+}
+.lesson-video::after {
+    display: inline-block;
+    position: absolute;
+    top: 15px;
+    left: 40px;
+    content: '';
+    width: 30px;
+    height: 30px;
+    background: url(https://piccdn2.umiwi.com/fe-oss/default/MTU4NDI2MDIzODA1.png) no-repeat center / contain;
+}
+.lesson-video.live-video::after {
+    background: url(https://piccdn2.umiwi.com/fe-oss/default/MTYzMjU3NDg0NDM3.png) no-repeat center / contain;
+}
+.lesson-content {
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.lesson-audio {
+  flex: 1;
+  margin: auto 0
+}
+.lesson-audio .lesson-title {
+    line-height: 22px;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    position: relative;
+    font-size: 16px;
+    display: -webkit-box;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+.lesson-audio .lesson-title.extra-course {
+      text-indent: 2.3rem;
+}
+.lesson-audio .lesson-title.extra-course::after {
+        position: absolute;
+        top: -7px;
+        left: -16px;
+        content: '\52A0\9910';
+        width: 64px;
+        height: 36px;
+        background: #ff2400;
+        border-radius: 18px;
+        color: #fff;
+        text-align: center;
+        transform: scale(0.5);
+        font-size: 20px;
+        line-height: 36px;
+        text-indent: 0;
+}
+.lesson-audio .lesson-title.extra-course.lesson-title-active {
+        color: #ff6b00;
+}
+.lesson-audio .lesson-detail {
+    display: flex;
+    justify-content: space-between
+}
+.lesson-audio .lesson-detail .play-btn {
+      width: 20px;
+      height: 20px;
+      background: url(https://piccdn2.umiwi.com/fe-oss/default/MTU4NDA4MjgzNTc1.png) no-repeat center / contain;
+}
+.lesson-audio .lesson-detail .play-btn.playing {
+        background: url(https://piccdn2.umiwi.com/fe-oss/default/MTU4NDMyNDEzNTUy.png) no-repeat center / contain;
+}
+.lesson-audio .lesson-detail .progress-info {
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      right: 10px;
+      content: '';
+      width: 40px;
+      height: 16px;
+      margin-left: 5px;
+      background: #3cd5b7;
+      border-radius: 0 0 3px 3px;
+      color: #fff;
+      text-align: center;
+      font-size: 12px;
+      line-height: 16px;
+}
+.lesson-audio .lesson-detail .trial-progress::after {
+        display: inline-block;
+        content: '已学习';
+        transform: scale(0.834);
+}
+.lesson-audio .lesson-detail .subscribe-progress {
+      width: 50px;
+      background: #ff6b00;
+}
+.lesson-audio .lesson-detail .subscribe-progress::after {
+        display: inline-block;
+        content: '上次学到';
+        transform: scale(0.834);
+}
+
+
+.iget-course-header {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  background: #fff;
+}
+.iget-course-detail {
+  padding-top: 100px
+}
+.iget-course-detail .fade-enter-active {
+    transition: opacity 0.3s ease;
+}
+.iget-course-detail .fade-leave-active {
+    transition: opacity 0.3s ease;
+}
+.iget-course-detail .fade-enter, .iget-course-detail .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+}
+.iget-course-detail .ui-row {
+    min-height: calc(100vh - 300px);
+}
+.iget-course-detail .clear {
+    clear: both !important;
+}
+.iget-course-detail .right-content {
+    min-height: 100vh;
+    padding-bottom: 60px;
+}
+.iget-course-detail .left-content {
+    position: relative;
+    min-height: 100vh;
+}
+.iget-course-detail .course-body {
+    position: relative;
+}
+.iget-course-detail .course-body .catalog-box-course {
+      position: relative;
+      overflow-y: hidden;
+}
+.iget-course-detail .course-body .catalog-box-course.catalog-wrapper-unfold {
+        max-height: -webkit-max-content !important;
+        max-height: max-content !important;
+        margin-bottom: 27px !important;
+        padding-bottom: 0 !important;
+}
+.iget-course-detail .course-body .catalog-fold {
+      display: none;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      background: #fff;
+      cursor: pointer;
+      font-size: 12px;
+      color: #666;
+      letter-spacing: 0;
+      line-height: 16px
+}
+.iget-course-detail .course-body .catalog-fold .iget-icon-fold {
+        display: inline-block;
+        transform: rotate(0deg);
+        color: #999;
+        font-size: 12px;
+        transition: all 0.2s ease-in-out;
+}
+.iget-course-detail .course-body .catalog-fold .iget-icon-fold.icon-unfold {
+          transform: rotate(180deg);
+          transition: all 0.2s ease-in-out;
+}
+.iget-course-detail .course-body {
+
+    display: flex;
+    margin-top: 25px;
+}
+.iget-course-detail .course-body .introduce-and-content {
+      width: 100%;
+      position: relative
+}
+.iget-course-detail .course-body .introduce-and-content .section-info.course {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 0
+}
+.iget-course-detail .course-body .introduce-and-content .section-info.course .item-content {
+          border-right: 0 !important;
+}
+.iget-course-detail .course-body .introduce-and-content .section-info.course .item-content {
+          position: relative;
+          text-align: center;
+          min-width: 25%;
+          margin-bottom: 20px;
+          border-left: 1px solid #d8d8d8;
+}
+.iget-course-detail .course-body .introduce-and-content .section-info.course .item-content span {
+            display: block;
+}
+.iget-course-detail .course-body .introduce-and-content .section-info.course .item-content .info-item {
+            display: inline-block
+}
+.iget-course-detail .course-body .introduce-and-content .section-info.course .item-content .info-item .bar-title {
+              font-style: normal;
+              font-size: 12px;
+              color: #666;
+              letter-spacing: 0;
+              line-height: 16px;
+}
+.iget-course-detail .course-body .introduce-and-content .section-info.course .item-content.last-child {
+            border-right: none;
+}
+.iget-course-detail .course-body .introduce-and-content .section-info.course .info-value {
+          font-size: 18px;
+          color: #333;
+          letter-spacing: 0;
+          line-height: 28px;
+}
+.iget-course-detail .course-body .introduce-and-content .section-info.course .info-text {
+          color: #666;
+          line-height: 16px;
+          font-size: 12px;
+          letter-spacing: 0;
+}
+.iget-course-detail .course-body .introduce-and-content .tab-head {
+        border-bottom: 1px solid #e5e5e5;
+        background: #fff;
+        font-size: 20px;
+        color: #666;
+        letter-spacing: 0;
+        line-height: 30px;
+}
+.iget-course-detail .course-body .introduce-and-content .tab-head .introduce-tab,
+        .iget-course-detail .course-body .introduce-and-content .tab-head .content-tab {
+          display: inline-block;
+          padding-bottom: 15px;
+          color: #666;
+          cursor: pointer;
+}
+.iget-course-detail .course-body .introduce-and-content .tab-head .introduce-tab.tab-active, .iget-course-detail .course-body .introduce-and-content .tab-head .content-tab.tab-active {
+            color: #333;
+            font-weight: 700;
+            border-bottom: 4px solid #ff6b00;
+}
+.iget-course-detail .course-body .introduce-and-content .tab-head .introduce-tab {
+          margin-right: 40px;
+}
+.iget-course-detail .course-body .introduce-and-content .tab-head .free-try {
+          position: relative;
+          top: -3px;
+          display: inline-block;
+          margin-left: 10px;
+          width: 60px;
+          height: 20px;
+          background: #fff2d5;
+          text-align: center;
+          font-size: 12px;
+          color: #8b572a;
+          letter-spacing: 0;
+          line-height: 20px;
+          border-radius: 5px;
+}
+.iget-course-detail .course-body .introduce-and-content .tab-head.tab-head-fixed {
+          position: fixed;
+          z-index: 100;
+          top: 292px;
+          left: 50%;
+          transform: translateX(-520px);
+          padding-top: 40px;
+          height: 106px;
+}
+.iget-course-detail .course-body .introduce-and-content .filter {
+        display: flex;
+        align-items: center;
+        height: 64px;
+        color: #666;
+        font-size: 14px;
+        border-bottom: 1px solid #e5e5e5;
+        background: #fff;
+}
+.iget-course-detail .course-body .introduce-and-content .filter.filter-select {
+          justify-content: space-between;
+          flex-direction: row-reverse;
+}
+.iget-course-detail .course-body .introduce-and-content .filter.filter-fixed {
+          z-index: 100;
+          position: fixed;
+          top: 398px;
+          left: 50%;
+          height: 64px;
+          transform: translateX(-520px);
+}
+.iget-course-detail .course-body .introduce-and-content .filter {
+}
+.iget-course-detail .course-body .introduce-and-content .filter .airticle-txt {
+          font-size: 12px;
+          color: #3f3f3f;
+          letter-spacing: 0;
+          line-height: 16px;
+          margin-left: 5px;
+}
+.iget-course-detail .course-body .introduce-and-content .filter .filter-right {
+          position: relative;
+          z-index: 100;
+          cursor: pointer;
+          margin-right: 6px;
+          font-size: 12px;
+          color: #333;
+          letter-spacing: 0;
+          text-align: right;
+          line-height: 16px
+}
+.iget-course-detail .course-body .introduce-and-content .filter .filter-right .iget-icon-fold {
+            display: inline-block;
+            transform: rotate(0deg);
+            font-size: 12px;
+            color: #999;
+            margin-left: 4px;
+            transition: all 0.2s ease-in-out;
+}
+.iget-course-detail .course-body .introduce-and-content .filter .filter-right .iget-icon-fold.icon-unfold {
+              transform: rotate(180deg);
+              transition: all 0.2s ease-in-out;
+}
+.iget-course-detail .course-body .introduce-and-content .filter .filter-right .filter-list-wrapper {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 460px;
+            max-height: 373px;
+            font-size: 14px;
+            border-radius: 20px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+            overflow-y: scroll;
+}
+.iget-course-detail .course-body .introduce-and-content .filter .filter-right .filter-list-wrapper::before {
+              position: absolute;
+              top: 5px;
+              left: 28px;
+              width: 10px;
+              height: 7px;
+              background-image: url(https://piccdn2.umiwi.com/fe-oss/default/MTU4Mjc5MzAxMTUy.png);
+              background-repeat: no-repeat;
+              background-position: 0 0;
+              background-size: 10px 7px;
+              content: '';
+}
+.iget-course-detail .course-body .introduce-and-content .filter .filter-right .filter-list-wrapper {
+}
+.iget-course-detail .course-body .introduce-and-content .filter .filter-right .filter-list-wrapper .filter-list {
+              margin-top: 10px;
+              padding: 0 20px;
+              border: 0.5px solid #e5e5e5;
+              border-radius: 20px;
+              background: #fff
+}
+.iget-course-detail .course-body .introduce-and-content .filter .filter-right .filter-list-wrapper .filter-list .filter-item {
+                height: 44px;
+                font-size: 14px;
+                line-height: 44px;
+                color: #333;
+                border-bottom: 1px solid #e5e5e5;
+                display: flex;
+                align-items: center;
+                position: relative;
+                justify-content: space-between;
+}
+.iget-course-detail .course-body .introduce-and-content .filter .filter-right .filter-list-wrapper .filter-list .filter-item .chapter-txt {
+                  width: 87%;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                  text-align: left;
+}
+.iget-course-detail .course-body .introduce-and-content .filter .filter-right .filter-list-wrapper .filter-list .filter-item:last-child {
+                  border: none;
+}
+.iget-course-detail .course-body .introduce-and-content .filter .filter-right .filter-list-wrapper .filter-list .filter-item.filter-item-active {
+                  color: #ff6b00;
+                  font-weight: 600;
+                  text-align: left;
+}
+.iget-course-detail .course-body .introduce-and-content .filter .filter-right .filter-list-wrapper .filter-list .filter-item.filter-item-active::after {
+                    display: inline-block;
+                    position: absolute;
+                    top: 15px;
+                    right: 0;
+                    content: '';
+                    width: 20px;
+                    height: 15px;
+                    background-image: url(https://piccdn2.umiwi.com/fe-oss/default/MTU4NTI5NDU1Nzc4.png);
+                    background-size: 20px 15px;
+                    background-repeat: no-repeat;
+}
+.iget-course-detail .course-body .introduce-and-content .filter .bought-filter-right {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          text-align: center;
+          line-height: 30px
+}
+.iget-course-detail .course-body .introduce-and-content .filter .bought-filter-right .bottom {
+            top: 29px;
+}
+.iget-course-detail .course-body .introduce-and-content .filter .bought-filter-right .bottom::before {
+              content: '';
+              z-index: 1005;
+              top: -7px;
+              right: 13px;
+}
+
+/* 优化start */
+.iget-course-detail .course-body .introduce-and-content .filter .bought-filter-right .down-text {
+            font-size: 12px;
+            color: #333;
+            letter-spacing: 0;
+            text-align: right;
+            line-height: 16px;
+}
+.iget-course-detail .course-body .introduce-and-content .filter .bought-filter-right .down-text .filter-icon {
+              color: #666;
+              font-size: 16px;
+}
+.iget-course-detail .course-body .introduce-and-content .filter .bought-filter-right .down-text:hover {
+              cursor: pointer;
+}
+
+/* 优化end */
+.iget-course-detail .course-body .introduce-and-content .filter .bought-filter-right .common-order {
+            width: 62px;
+            height: 30px;
+            border-radius: 28px;
+            cursor: pointer;
+}
+.iget-course-detail .course-body .introduce-and-content .filter .bought-filter-right .common-order.common-order-active {
+              font-weight: 600;
+              background: #f5f3f1;
+              color: #ff6b00;
+}
+.iget-course-detail .course-body .introduce-and-content .filter .bought-filter-right .reverse {
+            width: 62px;
+            height: 30px;
+            border-radius: 28px;
+            cursor: pointer;
+}
+.iget-course-detail .course-body .introduce-and-content .filter .bought-filter-right .reverse.reverse-active {
+              font-weight: 600;
+              background: #f5f3f1;
+              color: #ff6b00;
+}
+.iget-course-detail .course-body .introduce-and-content .filter .bought-filter-right .hide-learned {
+            display: flex;
+            align-items: center;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce,
+      .iget-course-detail .course-body .introduce-and-content .content {
+        width: 100%;
+        padding-bottom: 30px
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .intro-title, .iget-course-detail .course-body .introduce-and-content .content .intro-title {
+          color: #333;
+          font-size: 20px;
+          font-weight: bold;
+          margin-top: 20px;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .intro-title.intro-title-fill:first-child, .iget-course-detail .course-body .introduce-and-content .content .intro-title.intro-title-fill:first-child {
+            margin-top: 25px;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .intro-content, .iget-course-detail .course-body .introduce-and-content .content .intro-content {
+          margin-top: 10px;
+          color: #333;
+          font-size: 16px;
+          line-height: 26px;
+          white-space: pre-line;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .foreward-audio, .iget-course-detail .course-body .introduce-and-content .content .foreward-audio {
+          width: 100%;
+          margin: 15px 0;
+          padding: 12px 15px;
+          border-radius: 5px;
+          background-color: #f7f7f7;
+          cursor: pointer;
+          position: relative;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .foreward-audio:hover, .iget-course-detail .course-body .introduce-and-content .content .foreward-audio:hover {
+            background: #f9f9f9;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .finished, .iget-course-detail .course-body .introduce-and-content .content .finished {
+          color: #999 !important;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-false, .iget-course-detail .course-body .introduce-and-content .content .sec-false {
+          display: flex;
+          flex-direction: column;
+          align-items: center
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-false .sec-outline, .iget-course-detail .course-body .introduce-and-content .content .sec-false .sec-outline {
+            width: 100%;
+            margin-top: 15px;
+            background: #f7f7f7;
+            border-radius: 5px;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-false .sec-outline.content-sec-outline, .iget-course-detail .course-body .introduce-and-content .content .sec-false .sec-outline.content-sec-outline {
+              cursor: pointer;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-false .sec-outline, .iget-course-detail .course-body .introduce-and-content .content .sec-false .sec-outline {
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-false .sec-outline .outline-audio, .iget-course-detail .course-body .introduce-and-content .content .sec-false .sec-outline .outline-audio {
+              position: relative;
+              padding: 10px 15px;
+              border-bottom: 0.5px solid rgba(229, 229, 229, 0.9);
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-false .sec-outline .outline-audio .audio-title, .iget-course-detail .course-body .introduce-and-content .content .sec-false .sec-outline .outline-audio .audio-title {
+                position: relative;
+
+                /* width: 300px; */
+                font-size: 16px;
+                display: -webkit-box;
+                overflow: hidden;
+                -webkit-line-clamp: 2;
+}
+
+/* padding-left: 37px; */
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-false .sec-outline .outline-audio .audio-title.extra-course::before, .iget-course-detail .course-body .introduce-and-content .content .sec-false .sec-outline .outline-audio .audio-title.extra-course::before {
+                    display: inline-block;
+                    position: absolute;
+                    top: 3px;
+                    left: 0;
+                    width: 32px;
+                    height: 17px;
+
+                    /* background-image: url(https://piccdn2.umiwi.com/fe-oss/default/MTU4NDk2NjMxNDY2.png); */
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+                    content: '';
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-false .sec-outline .outline-audio:last-child, .iget-course-detail .course-body .introduce-and-content .content .sec-false .sec-outline .outline-audio:last-child {
+                border: none;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-false .sec-outline .outline-audio:hover, .iget-course-detail .course-body .introduce-and-content .content .sec-false .sec-outline .outline-audio:hover {
+                background: #f9f9f9;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-false .more-bt, .iget-course-detail .course-body .introduce-and-content .content .sec-false .more-bt {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            height: 38px;
+            margin-top: 30px;
+            font-weight: 500;
+            font-size: 16px;
+            color: #ff6b00;
+            border-radius: 25px;
+            background-color: #f5f3f1;
+            cursor: pointer;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-false .loading-more, .iget-course-detail .course-body .introduce-and-content .content .sec-false .loading-more {
+            margin-top: 20px;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-true, .iget-course-detail .course-body .introduce-and-content .content .sec-true {
+}
+
+/* padding-bottom: 20px; */
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-true .sec-list, .iget-course-detail .course-body .introduce-and-content .content .sec-true .sec-list {
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-true .sec-list .single-sec, .iget-course-detail .course-body .introduce-and-content .content .sec-true .sec-list .single-sec {
+              position: relative;
+              font-size: 0
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-true .sec-list .single-sec .drawer-head, .iget-course-detail .course-body .introduce-and-content .content .sec-true .sec-list .single-sec .drawer-head {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                padding: 18px 0 12px;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-true .sec-list .single-sec .drawer-head.introduce-drawer-head, .iget-course-detail .course-body .introduce-and-content .content .sec-true .sec-list .single-sec .drawer-head.introduce-drawer-head {
+                  cursor: pointer;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-true .sec-list .single-sec .drawer-head, .iget-course-detail .course-body .introduce-and-content .content .sec-true .sec-list .single-sec .drawer-head {
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-true .sec-list .single-sec .drawer-head .sec-title, .iget-course-detail .course-body .introduce-and-content .content .sec-true .sec-list .single-sec .drawer-head .sec-title {
+                  font-size: 20px;
+                  font-weight: 600;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-true .sec-list .single-sec .drawer-head .sec-title:hover, .iget-course-detail .course-body .introduce-and-content .content .sec-true .sec-list .single-sec .drawer-head .sec-title:hover {
+                    cursor: pointer;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-true .sec-list .single-sec .drawer-head .iget-icon-fold, .iget-course-detail .course-body .introduce-and-content .content .sec-true .sec-list .single-sec .drawer-head .iget-icon-fold {
+                  display: inline-block;
+                  transform: rotate(0deg);
+                  font-size: 16px;
+                  color: #999;
+                  transition: all 0.2s ease-in-out;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-true .sec-list .single-sec .drawer-head .iget-icon-fold.icon-unfold, .iget-course-detail .course-body .introduce-and-content .content .sec-true .sec-list .single-sec .drawer-head .iget-icon-fold.icon-unfold {
+                    transform: rotate(180deg);
+                    transition: all 0.2s ease-in-out;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-true .sec-list .single-sec .drawer-main, .iget-course-detail .course-body .introduce-and-content .content .sec-true .sec-list .single-sec .drawer-main {
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                color: #333;
+                transition: max-height 0.1s ease-in-out;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-true .sec-list .single-sec .drawer-main .sec-intro, .iget-course-detail .course-body .introduce-and-content .content .sec-true .sec-list .single-sec .drawer-main .sec-intro {
+                  padding-bottom: 10px;
+                  color: #999;
+                  font-size: 14px;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-true .sec-list .single-sec .drawer-main .content-list, .iget-course-detail .course-body .introduce-and-content .content .sec-true .sec-list .single-sec .drawer-main .content-list {
+                  background: #f7f7f7;
+                  border-radius: 5px
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-true .sec-list .single-sec .drawer-main .content-list .single-content, .iget-course-detail .course-body .introduce-and-content .content .sec-true .sec-list .single-sec .drawer-main .content-list .single-content {
+                    position: relative;
+                    padding: 15px;
+                    border-bottom: 1px solid #e5e5e5;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-true .sec-list .single-sec .drawer-main .content-list .single-content .content-title, .iget-course-detail .course-body .introduce-and-content .content .sec-true .sec-list .single-sec .drawer-main .content-list .single-content .content-title {
+                      position: relative;
+                      max-width: 400px;
+                      font-size: 16px;
+                      display: -webkit-box;
+                      overflow: hidden;
+                      -webkit-line-clamp: 2;
+}
+
+/* padding-left: 37px; */
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-true .sec-list .single-sec .drawer-main .content-list .single-content .content-title.extra-course::before, .iget-course-detail .course-body .introduce-and-content .content .sec-true .sec-list .single-sec .drawer-main .content-list .single-content .content-title.extra-course::before {
+                          display: inline-block;
+                          position: absolute;
+                          top: 3px;
+                          left: 0;
+                          width: 32px;
+                          height: 17px;
+
+                          /* background-image: url(https://piccdn2.umiwi.com/fe-oss/default/MTU4NDk2NjMxNDY2.png); */
+                          background-repeat: no-repeat;
+                          background-position: center;
+                          background-size: contain;
+                          content: '';
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-true .sec-list .single-sec .drawer-main .content-list .single-content:last-child, .iget-course-detail .course-body .introduce-and-content .content .sec-true .sec-list .single-sec .drawer-main .content-list .single-content:last-child {
+                      border: none;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-true .sec-list .single-sec .drawer-main .content-list .single-content:hover, .iget-course-detail .course-body .introduce-and-content .content .sec-true .sec-list .single-sec .drawer-main .content-list .single-content:hover {
+                      background: #f9f9f9;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-true .sec-list .single-sec .drawer-main.main-active, .iget-course-detail .course-body .introduce-and-content .content .sec-true .sec-list .single-sec .drawer-main.main-active {
+                  max-height: -webkit-max-content !important;
+                  max-height: max-content !important;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-true .sec-list .single-sec .drawer-main.main-active, .iget-course-detail .course-body .introduce-and-content .content .sec-true .sec-list .single-sec .drawer-main.main-active {
+                  transition: max-height 0.1s ease-in-out;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-true .sec-list .single-sec .content-drawer-main, .iget-course-detail .course-body .introduce-and-content .content .sec-true .sec-list .single-sec .content-drawer-main {
+                cursor: pointer;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .sec-true .sec-list .single-sec + .single-sec, .iget-course-detail .course-body .introduce-and-content .content .sec-true .sec-list .single-sec + .single-sec {
+              margin-top: 10px;
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .buy-tip, .iget-course-detail .course-body .introduce-and-content .content .buy-tip {
+          padding: 14px 20px;
+          border-radius: 5px;
+          margin-top: 30px
+}
+.iget-course-detail .course-body .introduce-and-content .introduce .buy-tip .buy-title, .iget-course-detail .course-body .introduce-and-content .content .buy-tip .buy-title {
+            font-size: 20px;
+            font-weight: bold;
+}
+.iget-course-detail .course-body.content-fill {
+      margin-top: 490px;
+}
+.iget-course-detail .course-body.introduce-fill {
+      margin-top: 470px;
+}
+.iget-course-detail .download-wrapper {
+    z-index: 900;
+    position: fixed;
+    right: 40px;
+    bottom: 60px;
+}
+.iget-course-detail .course-recommend {
+    background: #fff;
+}
+.iget-course-detail .course-recommend .recommend-title {
+      font-weight: 700;
+      font-size: 20px;
+      color: #333;
+      letter-spacing: 0;
+      line-height: 30px;
+      padding-left: 10px;
+}
+.iget-course-detail .course-recommend .recommend-list {
+      position: relative
+}
+.iget-course-detail .course-recommend .recommend-list .B2 {
+}
+.iget-course-detail .course-recommend .recommend-list .B2 .detail {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between
+}
+.iget-course-detail .course-recommend .recommend-list .B2 .detail .title {
+            display: -webkit-box;
+            margin-top: 10px;
+            overflow: hidden;
+            font-weight: 500;
+            -webkit-line-clamp: 1;
+}
+.iget-course-detail .course-recommend .recommend-list .B2 .detail .summary {
+            display: -webkit-box;
+            height: 36px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            line-height: 18px;
+            -webkit-line-clamp: 2;
+}
+.iget-course-detail .course-recommend .recommend-list .B2 .detail .tip {
+            margin-bottom: 5px;
+            line-height: 18px;
+}
+.iget-course-detail .course-recommend.course-recommend-fixed {
+      position: fixed;
+      z-index: 100;
+      top: 330px;
+      left: 50%;
+      transform: translateX(240px);
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+.iget-course-detail {
+    margin: 0 30px !important
+}
+.iget-course-detail .filter-list-wrapper {
+      width: 343px !important;
+}
+.iget-course-detail .item-content {
+      min-width: 33.333% !important;
+}
+.iget-course-detail .item-content:nth-child(3n + 4) {
+        border-left: none !important;
+}
+.iget-course-detail .item-content:first-child {
+        border-left: none !important;
+}
+.iget-course-detail .item-content:nth-child(-n + 3) {
+        flex: 1;
+}
+}
+@media (min-width: 1024px) {
+.iget-course-detail {
+    margin: 0 20px !important
+}
+.iget-course-detail .catalog-box-course {
+      margin-bottom: 0 !important;
+}
+.iget-course-detail .item-content:nth-child(4n-3) {
+        border-left: none !important;
+}
+.iget-course-detail .item-content:nth-child(-n + 4) {
+        flex: 1;
+}
+}
+@media (max-width: 767px) {
+.iget-course-detail {
+    margin: 0 20px !important
+}
+.iget-course-detail .section-info.course {
+}
+.iget-course-detail .section-info.course .item-content {
+        min-width: 50% !important;
+}
+.iget-course-detail .section-info.course .item-content:nth-child(odd) {
+          border-left: none !important;
+}
+.iget-course-detail .section-info.course .item-content:nth-child(even) {
+          border-right: none !important;
+}
+.iget-course-detail .section-info.course .item-content:nth-child(-n + 2) {
+          flex: 1;
+}
+.iget-course-detail .has-last-lesson {
+      margin-bottom: 20px !important;
+}
+.iget-course-detail .has-last-lesson {
+      margin-top: 25px;
+}
+.iget-course-detail .has-buy {
+      margin-bottom: 20px !important
+}
+.iget-course-detail .has-buy {
+      max-height: 82px
+}
+.iget-course-detail .has-buy .section-info.course {
+        margin-top: 0 !important;
+}
+.iget-course-detail .has-buy .catalog-fold {
+        display: block;
+}
+.iget-course-detail .start-learn {
+      margin-top: 0 !important
+}
+.iget-course-detail .start-learn .catalog-fold {
+        display: none;
+}
+.iget-course-detail .filter-list-wrapper {
+      width: 205px !important;
+}
+.iget-course-detail .chapter-title {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      max-width: 50px;
+      display: inline-block;
+}
+.iget-course-detail .filter-right {
+      display: flex;
+}
+.iget-course-detail .recommend-lit-box {
+}
+.iget-course-detail .recommend-lit-box .recommend-title {
+        padding-left: 0;
+}
+.iget-course-detail .recommend-lit-box .oul {
+        margin-left: -10px;
+}
+.right-content {
+    position: static !important;
+    min-height: auto !important;
+}
+.left-content {
+    position: static !important;
+    min-height: auto !important
+}
+.left-content .content {
+      padding-bottom: 20px !important;
+}
+}
+
+
+/*# sourceMappingURL=614.02ce2f1b.css.map*/

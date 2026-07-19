@@ -1,0 +1,915 @@
+@charset "UTF-8";
+.clearfix::after,
+.clearfix::before {
+  display: table;
+  content: '';
+}
+.clearfix::after {
+  clear: both;
+  overflow: hidden;
+}
+.clearfix {
+  zoom: 1;
+}
+.iget-common-f1 {
+  font-size: 26px;
+}
+.iget-common-f2 {
+  font-size: 20px;
+}
+.iget-common-f3 {
+  font-size: 18px;
+}
+.iget-common-f4 {
+  font-size: 16px;
+}
+.iget-common-f5 {
+  font-size: 14px;
+}
+.iget-common-f6 {
+  font-size: 12px;
+}
+.iget-common-f7 {
+  font-size: 10px;
+}
+.iget-common-l1 {
+  line-height: 26px;
+}
+.iget-common-l2 {
+  line-height: 24px;
+}
+.iget-common-l3 {
+  line-height: 22px;
+}
+.iget-common-l4 {
+  line-height: 20px;
+}
+.iget-common-l5 {
+  line-height: 18px;
+}
+.iget-common-l6 {
+  line-height: 16px;
+}
+.iget-common-l7 {
+  line-height: 14px;
+}
+.iget-common-l8 {
+  line-height: 12px;
+}
+.iget-common-l9 {
+  line-height: 10px;
+}
+.iget-common-c1 {
+  color: #333;
+}
+.iget-common-c2 {
+  color: #666;
+}
+.iget-common-c3 {
+  color: #999;
+}
+.iget-common-c4 {
+  color: #d8d8d8;
+}
+.iget-common-c5 {
+  color: #e5e5e5;
+}
+.iget-common-c6 {
+  color: #f5f3f1;
+}
+.iget-common-c7 {
+  color: #f7f7f7;
+}
+.iget-common-c8 {
+  color: #f9f9f9;
+}
+.iget-common-c9 {
+  color: #fff;
+}
+.iget-common-c10 {
+  color: #ff6b00;
+}
+.iget-common-c11 {
+  color: #59ccb2;
+}
+.iget-common-c12 {
+  color: #ff4f4f;
+}
+.iget-common-c13 {
+  color: rgba(255, 255, 255, 0.5);
+}
+.iget-common-c14 {
+  color: #f3f3f3;
+}
+.iget-commom-c15 {
+  color: #000;
+}
+.iget-commom-c16 {
+  color: #4c4c4c;
+}
+.iget-commom-c17 {
+  color: #c4c4c4;
+}
+.iget-common-b1 {
+  background-color: #333;
+}
+.iget-common-b2 {
+  background-color: #666;
+}
+.iget-common-b3 {
+  background-color: #999;
+}
+.iget-common-b4 {
+  background-color: #d8d8d8;
+}
+.iget-common-b5 {
+  background-color: #e5e5e5;
+}
+.iget-common-b6 {
+  background-color: #f5f3f1;
+}
+.iget-common-b7 {
+  background-color: #f7f7f7;
+}
+.iget-common-b8 {
+  background-color: #f9f9f9;
+}
+.iget-common-b9 {
+  background-color: #fff;
+}
+.iget-common-b10 {
+  background-color: #ff6b00;
+}
+.iget-common-b11 {
+  background-color: #59ccb2;
+}
+.iget-common-b12 {
+  background-color: #ff4f4f;
+}
+.iget-common-b13 {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.iget-common-b14 {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.iget-common-b15 {
+  background-color: #e7e7e7;
+}
+.iget-common-b16 {
+  background-color: #e6e6e6;
+}
+.iget-common-b17 {
+  background-color: #0bb861;
+}
+.iget-common-b18 {
+  background-color: #ff3c00;
+}
+.iget-common-b19 {
+  background-color: #f0f0f0;
+}
+.iget-common-b20 {
+  background-color: #fafafa;
+}
+.iget-common-s1 {
+  border-color: #333;
+}
+.iget-common-s2 {
+  border-color: #666;
+}
+.iget-common-s3 {
+  border-color: #999;
+}
+.iget-common-s4 {
+  border-color: #d8d8d8;
+}
+.iget-common-s5 {
+  border-color: #e5e5e5;
+}
+.iget-common-s6 {
+  border-color: #f5f3f1;
+}
+.iget-common-s7 {
+  border-color: #f7f7f7;
+}
+.iget-common-s8 {
+  border-color: #f9f9f9;
+}
+.iget-common-s9 {
+  border-color: #fff;
+}
+.iget-common-s10 {
+  border-color: #ff6b00;
+}
+.iget-common-s11 {
+  border-color: #59ccb2;
+}
+.iget-common-s12 {
+  border-color: #ff4f4f;
+}
+.iget-common-s13 {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* .iget-common-s13 {
+  border-color: rgba(0, 0, 0, 0.5);
+} */
+.iget-common-s16 {
+  border-color: #e6e6e6;
+}
+.iget-common-s17 {
+  border-color: #f3f3f3;
+}
+.iget-common-fw1 {
+  font-weight: 500;
+}
+.iget-common-fw2 {
+  font-weight: 600;
+}
+.iget-common-fw3 {
+  font-weight: 700;
+}
+.iget-common-button {
+  width: 100%;
+  height: 38px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 38px;
+  line-height: 34px;
+  text-align: center;
+  cursor: pointer;
+}
+.iget-common-button-small {
+  width: 100%;
+  height: 30px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 30px;
+  line-height: 26px;
+  text-align: center;
+  cursor: pointer;
+}
+.iget-main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.iget-common-text {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0 none;
+  font-size: 16px;
+  line-height: 100%;
+}
+hl {
+  color: #ff6b00;
+  font-weight: bold;
+}
+img[lazy='loaded'] {
+  animation: ackgrde 0.3s;
+}
+img {
+  transition: all 0.3s;
+}
+@keyframes fade {
+0% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+
+/* emoji 字体 */
+@font-face {
+  font-family: 'iget-emoji';
+  src: local('Apple Color Emoji'), local('Segoe UI Emoji'), local('Segoe UI Symbol'), local('Noto Color Emoji');
+}
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('https://piccdn2.umiwi.com/fe-oss/default/MTYyMTkyODA2MTA0.');
+}
+.iget-emoji {
+  font-family: iget-emoji, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, 'PingFang SC', 'Hiragino Sans GB', STHeiti,
+    'Microsoft YaHei', 'Microsoft JhengHei', 'Source Han Sans SC', 'Noto Sans CJK SC', 'Source Han Sans CN',
+    'Noto Sans SC', 'Source Han Sans TC', 'Noto Sans CJK TC', SimSun, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: #fff;
+  color: #333;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-overflow-scrolling: touch;
+}
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+figure,
+ol,
+ul,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-size: inherit;
+  font-weight: normal;
+}
+ol,
+ul {
+  list-style: none;
+}
+a,
+button {
+  color: inherit;
+}
+a {
+  text-decoration: none;
+}
+button {
+  overflow: visible;
+  border: 0;
+  outline: 0;
+  background: none;
+  font: inherit;
+  letter-spacing: inherit;
+  padding: 0;
+}
+input {
+  outline: 0;
+}
+input::-webkit-credentials-auto-fill-button {
+  visibility: hidden;
+}
+input[type='search'] {
+  -webkit-appearance: none;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+}
+strong {
+  font-weight: bold;
+}
+em,
+i {
+  font-style: normal;
+}
+.unselect {
+  -webkit-user-select: none;
+          user-select: none;
+}
+@font-face {
+  font-family: iconfont;
+  src: url(https://imgcdn.umiwi.com/fe-static/prod/igetWeb/font/iconfont.7999ef60.ttf) format('truetype'), url(https://imgcdn.umiwi.com/fe-static/prod/igetWeb/font/iconfont.ef854129.svg) format('svg');
+
+  /* home 包发版需开启这条注释，保证 iconfont 正确引用 */
+
+  /* src: url('./iconfont.ttf') format('truetype'), url('./iconfont.svg') format('svg'); */
+}
+.iconfont {
+  font-family: iconfont, sans-serif !important;
+}
+.iconfont {
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.iget-icon-note::before {
+  content: '\ea11';
+}
+.iget-icon-delete-line::before {
+  content: '\ea0e';
+}
+.iget-icon-note-line::before {
+  content: '\ea10';
+}
+.iget-icon-copy::before {
+  content: '\ea0f';
+}
+.iget-icon-quote::before {
+  content: '\ebee';
+}
+.iget-icon-audio-playing::before {
+  content: '\e9d2';
+}
+.iget-icon-audio-default::before {
+  content: '\e9cf';
+}
+.iget-icon-pack-right::before {
+  content: '\e9cc';
+}
+.iget-icon-pack-left::before {
+  content: '\e9ca';
+}
+.iget-icon-share-wechat::before {
+  content: '\e9d6';
+}
+.iget-icon-wechat::before {
+  content: '\e9d7';
+}
+.iget-icon-go-top::before {
+  content: '\e9d5';
+}
+.iget-icon-search::before {
+  content: '\e9d1';
+}
+.iget-icon-more::before {
+  content: '\e9c7';
+}
+.iget-icon-buy::before {
+  content: '\e9d3';
+}
+.iget-icon-out::before {
+  content: '\e9d4';
+}
+.iget-icon-weibo::before {
+  content: '\e9d8';
+}
+.iget-icon-fold::before {
+  content: '\e9c8';
+}
+.iget-icon-prev::before {
+  content: '\e9c5';
+}
+.iget-icon-play::before {
+  content: '\e9d9';
+}
+.iget-icon-simple-play::before {
+  content: '\ea72';
+}
+.iget-icon-pause::before {
+  content: '\e9da';
+}
+.iget-icon-next::before {
+  content: '\e9c6';
+}
+.iget-icon-close::before {
+  content: '\e9be';
+}
+.iget-icon-speed::before {
+  content: '\e9c0';
+}
+.iget-icon-article::before {
+  content: '\e9c3';
+}
+.iget-icon-selected::before {
+  content: '\e9db';
+}
+.iget-icon-like::before {
+  content: '\e996';
+}
+.iget-icon-share::before {
+  content: '\e9d0';
+}
+.iget-icon-forward::before {
+  content: '\e9f4';
+}
+.iget-icon-comment::before {
+  content: '\e9f5';
+}
+.iget-icon-commented::before {
+  content: '\eac5';
+}
+.iget-icon-liked::before {
+  content: '\eac4';
+}
+.iget-icon-forwarded::before {
+  content: '\e9f6';
+}
+.iget-icon-cancel-forward::before {
+  content: '\eabe';
+}
+.iget-icon-filter::before {
+  content: '\ea0b';
+}
+.iget-icon-single-page::before {
+  content: '\ea15';
+}
+.iget-icon-back::before {
+  content: '\ea16';
+}
+.iget-icon-list::before {
+  content: '\ea17';
+}
+.iget-icon-font::before {
+  content: '\ea18';
+}
+.iget-icon-full-page::before {
+  content: '\ea24';
+}
+.iget-icon-add-book::before {
+  content: '\ea1a';
+}
+.iget-icon-double-page::before {
+  content: '\ea1b';
+}
+.iget-icon-sync::before {
+  content: '\ea1c';
+}
+.iget-icon-bookshelf::before {
+  content: '\ea1d';
+}
+.iget-icon-full-screen::before {
+  content: '\ea25';
+}
+.iget-icon-warn::before {
+  content: '\ea07';
+}
+.iget-icon-phone::before {
+  content: '\ea20';
+}
+.iget-icon-message::before {
+  content: '\e9d6';
+}
+.iget-icon-star::before {
+  content: '\ea23';
+}
+.iget-icon-half-star::before {
+  content: '\ea21';
+}
+.iget-icon-collapse::before {
+  content: '\ea1e';
+}
+.iget-icon-unfold::before {
+  content: '\ea1f';
+}
+.iget-icon-edit::before {
+  content: '\ea0c';
+}
+.iget-icon-select::before {
+  content: '\ea0d';
+}
+.iget-icon-unselect::before {
+  content: '\ea27';
+}
+.iget-icon-radio::before {
+  content: '\ea0d';
+}
+.iget-icon-question::before {
+  content: '\ea26';
+}
+
+/* 永久免费 */
+.iget-icon-free-forever::before {
+  content: '\ea14';
+  color: #666;
+  font-size: 24px;
+}
+
+/* 付费书籍 */
+.iget-icon-pay::before {
+  content: '\ea13';
+  color: #6d7fa7;
+  font-size: 24px;
+}
+
+/* 会员免费 */
+.iget-icon-free-for-members::before {
+  content: '\ea12';
+  color: #da9727;
+  font-size: 24px;
+}
+.iget-icon-selected-circle::before {
+  content: '\e9dd';
+}
+.iget-icon-hot::before {
+  content: '\ea0a';
+}
+.iget-icon-clear::before {
+  content: '\e984';
+}
+.iget-icon-prompt::before {
+  content: '\ea2f';
+}
+.iget-icon-public::before {
+  content: '\eb80';
+}
+.iget-icon-private::before {
+  content: '\ea7c';
+}
+.iget-icon-return::before {
+  content: '\ea08';
+}
+.iget-icon-point::before {
+  content: '\eabc';
+}
+.iget-icon-image::before {
+  content: '\eab6';
+}
+.iget-icon-topic::before {
+  content: '\eb7e';
+}
+.iget-icon-attention::before {
+  content: '\eab4';
+}
+.iget-icon-knowledge-close::before {
+  content: '\eac3';
+}
+.iget-icon-knowledge-report::before {
+  content: '\eabd';
+}
+.iget-icon-cancel-forwarding::before {
+  content: '\eabe';
+}
+.iget-icon-expand-full-screen::before {
+  content: '\eabf';
+}
+.iget-icon-cancle-full-screen::before {
+  content: '\eac0';
+}
+.iget-icon-delete::before {
+  content: '\eac1';
+}
+.iget-icon-get-off::before {
+  content: '\eac2';
+}
+.iget-icon-knowledge-pop-link::before {
+  content: '\eaba';
+}
+.iget-icon-knowledge-top-link::before {
+  content: '\eabb';
+}
+.iget-icon-knowledge-news::before {
+  content: '\eab8';
+}
+.iget-icon-get-on::before {
+  content: '\eac6';
+}
+.iget-icon-live::before {
+  content: '\ea2d';
+}
+.iget-icon-live-circle::before {
+  content: '\ea2e';
+}
+.iget-icon-iphone::before {
+  content: '\ea94';
+}
+.iget-icon-android::before {
+  content: '\ea93';
+}
+.iget-icon-record::before {
+  content: '\ea98';
+}
+.iget-icon-bought::before {
+  content: '\eab9';
+}
+.iget-icon-unfold-arrow::before {
+  content: '\e9cb';
+}
+.iconicon-zihao-xiao::before {
+  content: '\ead6';
+}
+.iconicon-zihao-zhong::before {
+  content: '\ead7';
+}
+.iconicon-zihao-da::before {
+  content: '\ead8';
+}
+.iget-icon-remove::before {
+  content: '\ead9';
+}
+.iget-icon-to-top::before {
+  content: '\eada';
+}
+.iget-icon-elected::before {
+  content: '\eadb';
+}
+.iget-icon-cancel-top::before {
+  content: '\eadc';
+}
+.iget-icon-knowledge::before {
+  content: '\eae3';
+}
+.iget-icon-teacher::before {
+  content: '\eae4';
+}
+.iget-icon-grade::before {
+  content: '\eaff';
+}
+.iget-icon-default-image::before {
+  content: '\eafa';
+}
+.iget-icon-graduate::before {
+  content: '\eb40';
+}
+.iget-icon-info::before {
+  content: '\eadd';
+}
+.iget-icon-article-fill::before {
+  content: '\eaa4';
+}
+.iget-icon-write::before {
+  content: '\eaa3';
+}
+.iget-icon-audio-playing-v2::before {
+  content: '\eaa2';
+}
+.iget-icon-headset::before {
+  content: '\eaa1';
+}
+.iget-icon-medal::before {
+  content: '\ea8d';
+}
+.iget-icon-flag::before {
+  content: '\ea52';
+}
+.iget-icon-link::before {
+  content: '\e9e0';
+}
+.iget-icon-position::before {
+  content: '\e812';
+}
+.iget-icon-folder::before {
+  content: '\eb61';
+}
+.iget-icon-flag-empty::before {
+  content: '\eb64';
+}
+.iget-icon-exam::before {
+  content: '\eb68';
+}
+.iget-icon-message-square::before {
+  content: '\eb67';
+}
+.iget-icon-idea::before {
+  content: '\eb67';
+}
+.iget-icon-start-chapter::before {
+  content: '\eb6a';
+}
+.iget-icon-end-chapter::before {
+  content: '\eb6c';
+}
+.iget-icon-start-chapter-fill::before {
+  content: '\ea8c';
+}
+.iget-icon-end-chapter-fill::before {
+  content: '\ea56';
+}
+.iget-icon-close-middle::before {
+  content: '\eb7f';
+}
+.iget-icon-only-classmate::before {
+  content: '\eb81';
+}
+.iget-icon-submitted::before {
+  content: '\eb85';
+}
+.iget-icon-display-popup::before {
+  content: '\eb9a';
+}
+.iget-icon-minimize-popup::before {
+  content: '\eba5';
+}
+.iget-icon-rating-star::before {
+  content: '\ebb8';
+}
+.iget-icon-rating-half-star::before {
+  content: '\ebba';
+}
+.iget-icon-ebook-tag::before {
+  content: '\ebc5';
+}
+.iget-icon-training-camp-tag::before {
+  content: '\ebc6';
+}
+.iget-icon-course-tag::before {
+  content: '\ebc4';
+}
+.iget-icon-notes-count::before {
+  content: '\ebbf';
+}
+.iget-icon-offline-center::before {
+  content: '\ebbe';
+}
+.iget-icon-learning-time::before {
+  content: '\ebbd';
+}
+.iget-icon-users-count::before {
+  content: '\ebbc';
+}
+.iget-icon-login-course::before {
+  content: '\ebc9';
+}
+.iget-icon-login-learn::before {
+  content: '\ebd6';
+}
+.iget-icon-login-message::before {
+  content: '\ebca';
+}
+.iget-icon-login-synchronize::before {
+  content: '\ebcc';
+}
+.iget-icon-users-accumulation::before {
+  content: '\ebcb';
+}
+.iget-icon-back-to-top::before {
+  content: '\ebd4';
+}
+.iget-icon-qr-code::before {
+  content: '\ebb5';
+}
+.iget-icon-live-interactive::before {
+  content: '\ebcf';
+}
+.iget-icon-online-people::before {
+  content: '\ebdd';
+}
+.iget-icon-clock::before {
+  content: '\ebcd';
+}
+.iget-icon-elevator-controller::before {
+  content: '\ebd3';
+}
+.iget-icon-search-new::before {
+  content: '\ebb1';
+}
+.iget-icon-toast-error::before {
+  content: '\eae0';
+}
+.iget-icon-qrcode::before {
+  content: '\ebda';
+}
+.iget-icon-refresh::before {
+  content: '\ebd2';
+}
+.iget-icon-double-arrow::before {
+  content: '\ebd5';
+}
+.iget-icon-correct::before {
+  content: '\ebd1';
+}
+.iget-icon-wrong::before {
+  content: '\ebd0';
+}
+.iget-icon-read::before {
+  content: '\ebfd';
+}
+.iget-icon-update-reminder::before {
+  content: '\ebfa';
+}
+.iget-icon-circle-success::before {
+  content: '\ec50';
+}
+.iget-icon-circle-add::before {
+  content: '\ec23';
+}
+.iget-icon-xunlian::before {
+  content: '\ec95';
+}
+.iget-icon-chongzhi::before {
+  content: '\ed18';
+}
+.iconbeisu:before {
+  content: "\ed2a";
+}
+.iconwengao:before {
+  content: "\ed25";
+}
+.iconxiayige:before {
+  content: "\ed26";
+}
+.iconxiayigejinyong:before {
+  content: "\ed29";
+}
+.iconshangyige:before {
+  content: "\ed28";
+}
+.iconshangyigejinyong:before {
+  content: "\ed2b";
+}
+
+/* 保障易盾验证码不收全局img样式的影响 */
+.yidun_jigsaw{
+  transition: none !important;
+}
+.yidun_modal{
+  top: 50% !important;
+  margin-top:-124px !important;
+}
+
+
+/*# sourceMappingURL=igetWeb.aa6ed08e.css.map*/
