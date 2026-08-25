@@ -217,6 +217,37 @@ See the [skill README](./analyze-dip/SKILL.md) for the workflow and [REFERENCE.m
 
 ---
 
+### [fetch-dedao-cources](./fetch-dedao-cources/)
+
+Scrapes paid Dedao (得到APP, dedao.cn) courses into a complete local HTML archive — one folder per article (HTML + localized images), plus a searchable `index.html` master index. Battle-tested on 万维钢's 7 courses (2,115 articles) and 卓克's 7 courses (2,019 articles) with zero misses.
+
+**Features:**
+- Reuses the local Chrome login state (copies Cookies into a headless debug instance — no password needed)
+- Full article-list pagination via the site's internal API (count cross-checked against the official course counter)
+- Per-article content harvested by navigating real pages and capturing the ddarticle responses (replayed in-page fetches are server-side withheld)
+- Images downloaded locally and inserted at their original positions; per-article title image (`header_*`) preserved; filename-collision protection via URL hashing
+- Two-tier promo-image filtering: wide-banner rule (aspect ratio ≥ 3, no caption) + byte-identical repeat-group triage (OCR + QR-code detection + visual review), with a shipped blacklist of 12 verified campaign images
+- Configurable via `config.json`: course list (name + URL), archive-root naming rule (`{date}/{year}/{month}/{author}` templates), and per-article folder naming rule (`{course}/{module}/{date}/{number}/{title}` templates — e.g. 万维钢-style `{course}-{module}-{date}-{title}` or 卓克-style `{course}-{date}-{number}_{title}`)
+- Resumable pipeline, built-in audit (list counts, harvest completeness, image refs, index links, ad residue)
+
+**Install:**
+```bash
+npx skills add desmondc9/agent-skills@fetch-dedao-cources -g
+```
+
+**Usage:** Ask naturally with course URLs (requires being logged into dedao.cn in local Chrome):
+
+```
+帮我抓取得到课程 https://www.dedao.cn/course/detail?id=... 的全部文章
+把卓克科技参考1-5存到本地, 目录按 课程名-日期-编号_标题 命名
+```
+
+**Prerequisites:** `google-chrome`, `uv`, and a logged-in dedao.cn session in the local Chrome. Optional: `tesseract` + `chi_sim` traineddata for OCR-based ad triage.
+
+See the [skill README](./fetch-dedao-cources/SKILL.md) for the six-step workflow, config spec, and the critical-gotchas checklist.
+
+---
+
 ## License
 
 Apache 2.0 — see [LICENSE](./LICENSE).

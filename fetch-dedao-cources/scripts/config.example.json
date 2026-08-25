@@ -1,0 +1,35 @@
+{
+  "_comment": "复制到 <work_dir>/config.json 并按需修改。三项用户输入: courses=课程名+URL; root_dir=总目录命名规则(模板变量 {date}/{year}/{month}/{author} 或字面量); folder_template=每讲文件夹命名规则(变量 {course}/{module}/{date}/{number}/{title})。",
+  "author": "万维钢",
+  "base_dir": "/home/desmond/Books-and-Articles",
+  "root_dir": "{date}-{author}",
+  "courses": [
+    {"key": "S1", "name": "精英日课", "url": "https://www.dedao.cn/course/detail?id=93N5e6Rya4ZJjQYsQgVOmGApwlo08D"},
+    {"key": "S2", "name": "精英日课2", "url": "https://www.dedao.cn/course/detail?id=ez1DWOMARavZVxYSPJP2mlx7bjydLB"}
+  ],
+  "folder_template": "{course}-{module}-{date}-{title}",
+  "strip_module_prefix": true,
+  "strip_number_prefix": false,
+  "work_dir": "/tmp/dedao-fetch-work",
+  "chrome_port": 9223,
+  "tabs": 5,
+
+  "_examples": {
+    "万维钢式(书课)": {
+      "folder_template": "{course}-{module}-{date}-{title}",
+      "strip_module_prefix": true,
+      "strip_number_prefix": false,
+      "sample": "精英日课2-你能做任何工作-2017-09-18-1_“文科生”的反击_软技能的时代"
+    },
+    "卓克式(带编号日更课)": {
+      "folder_template": "{course}-{date}-{number}_{title}",
+      "strip_module_prefix": false,
+      "strip_number_prefix": true,
+      "sample": "科技参考2-2022-01-07-005_元宇宙的一盆凉水"
+    },
+    "最简式": {
+      "folder_template": "{date}-{title}",
+      "sample": "2017-09-18-“文科生”的反击_软技能的时代"
+    }
+  }
+}

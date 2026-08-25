@@ -1,2 +1,4 @@
 .remember/
 _mermaid_imgs/
+__pycache__/
+*.pyc
