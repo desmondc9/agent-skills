@@ -248,6 +248,48 @@ See the [skill README](./fetch-dedao-cources/SKILL.md) for the six-step workflow
 
 ---
 
+### [generate-report](./generate-report/)
+
+Writes, rewrites, or reviews a research report to the standards of the top consulting and research houses. The methodology is distilled from a side-by-side reading of real 2025–2026 reports by McKinsey, Gartner, BCG, Bain, Deloitte, PwC, IDC, Forrester, WEF, and the IMF/World Bank.
+
+**Features:**
+- **Stage 0 gate — three questions before writing**: the one-sentence thesis (must work as the subtitle), the counterintuitive hook (the "everyone thinks X, the data says Y" gap), and where every number comes from. Can't answer them → don't write yet, go back to research
+- **9-block skeleton** (title+subtitle → executive summary → why now → methodology → 3–8 finding chapters → forecasts → role-split recommendations → risks → sources/disclaimer), with three chapter-cut patterns (issue-parallel / value-chain / overview-plus-deep-dives) and three size tiers (1–2 page brief, 8–15 page standard, 30+ page flagship)
+- **Five-beat per-chapter template**: What → What's changing → Why → So what / who wins → Now what
+- **10 language & evidence rules**: conclusion-first at report/chapter/paragraph level, Action Titles (every heading and exhibit title is a full judgment sentence), one argument per paragraph, a number behind every claim, forecasts with time anchor + figure + baseline (Gartner style), the exhibit trio (number + conclusion title + Sources/Notes), named cases, one coinable framework (BCG's "10-20-70" style), stated uncertainty, role-split recommendations
+- **Institution playbooks** ([PLAYBOOKS.md](./generate-report/PLAYBOOKS.md)) — each house's structure, data base, exhibit conventions, and imitation notes, plus a selection guide for when the user hasn't named one
+- **Two review modes**: a 10-item release checklist, and a 100-point rubric (10 dimensions × 10 points) with deduction rules and grade bands for scoring someone else's draft
+- **Reusable genre template — multi-country × direction scoring × value chain × company investment map** ([templates/](./generate-report/templates/)): for the "research where China and the US will each push over the next 3–10 years, score every direction 0–100 and rank them, break each one down into upstream/midstream/downstream, then analyze every beneficiary company" class of request. Ships the five-stage pipeline (parallel research → market-data collection → scoring → per-chapter writing → docx), the five-dimension weighted scoring model with anchor table and tier bands, the 9-chapter skeleton, the four-part direction section, the six-part company card (weekly K-line + metrics table + earnings table + three-window (2026-28 / 28-32 / 32-35) bull/base/bear projection + verdict + risks), the five standard tables (scores, value chain, path comparison, valuation tiers, scenarios), per-chapter footnote prefixes, 10 genre-specific quality rules (every high score needs a counter-evidence; official vs third-party-tracked figures labeled separately; conflicting ranges listed not averaged; earnings quality split into operating / one-off / deal-pulse), and 8 known traps
+- **Market-data script** (`scripts/fetch_market_data.py`): one command pulls ~1.5y weekly K-line PNGs (red-up/green-down by default), a 10-metric stock table, and a two-period earnings table for a whole basket of US / HK / A-share tickers — emitted as paste-ready Markdown (`company_metrics.md`). yfinance primary, akshare fallback, sparse HK quarters handled, missing data flagged rather than guessed
+- **Data-integrity red lines**: no invented statistics, sample sizes, or citations; every second-hand number carries source + retrieval date; unsourced forward numbers are labeled 【情景假设】
+- Delivers into `reports/YYYY-MM-DD-<topic>/` (`brief.md` → `report.md` → `sources.md`), and hands off to `markdown-to-docx` for Word delivery
+
+**Install:**
+```bash
+npx skills add desmondc9/agent-skills@generate-report -g
+```
+
+**Usage:** Ask naturally — the skill auto-triggers on report-writing intent:
+
+```
+帮我写一份 2026 年中国 AI 基础设施行业研究报告
+把这几份访谈和数据整理成一篇趋势报告，像 Gartner 那样写
+这篇报告不够专业，帮我改结构
+评审一下这份白皮书，打个分并给修改清单
+
+# 命中投资图谱体裁模板：
+帮我调研未来 3-10 年 AI 应用会渗透到哪些领域，美国和中国分别往哪些方向发展，
+每个方向 0-100 打分并按可能性排序；各方向的产业链上中下游有哪些公司受益，
+逐一分析财报、行业地位、产品线、研发、市值，未来 3-10 年怎么变，值不值得投资，
+上市公司附近 1.5 年周 K 线图和指标表格
+```
+
+**Prerequisites:** `WebSearch` / `WebFetch` for sourcing data (or user-supplied material). Optional: the `markdown-to-docx` skill for `.docx` delivery; `uv` + network access to Yahoo Finance / akshare for `scripts/fetch_market_data.py` (behind the GFW, export the proxy env vars first).
+
+See the [skill README](./generate-report/SKILL.md) for the four-stage workflow, [REFERENCE.md](./generate-report/REFERENCE.md) for the 12 building blocks, 8 common laws, exhibit/methodology specs, the scoring rubric, and the anti-pattern list, and [templates/two-country-scoring-investment-map.md](./generate-report/templates/two-country-scoring-investment-map.md) for the investment-map genre.
+
+---
+
 ## License
 
 Apache 2.0 — see [LICENSE](./LICENSE).
