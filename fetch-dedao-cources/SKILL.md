@@ -1,6 +1,6 @@
 ---
 name: fetch-dedao-cources
-description: "抓取得到APP(dedao.cn)付费专栏/课程的全部文章到本地HTML存档:复用本机Chrome登录态(复制Cookies启动调试实例),API翻页拿全量文章列表,逐页导航收割正文(标题/发布时间/摘要/划重点/图片),图片本地化并按原位置插入,自动过滤课程推广广告图(宽幅横幅+字节重复组OCR/二维码鉴定),生成可搜索的index.html总目录。支持用户自定义: ①课程名+URL列表 ②保存总目录命名规则 ③每讲文件夹命名规则(模板变量 {course}/{module}/{date}/{number}/{title})。Use whenever 用户要求抓取/备份/存档得到课程、精英日课类专栏、或提到 dedao.cn 课程内容下载。"
+description: "抓取得到APP(dedao.cn)付费专栏/课程的全部文章到本地HTML存档:复用本机Chrome登录态(复制Cookies启动调试实例),或注入 Get cookies.txt LOCALLY 导出的 cookies.txt(WSL/无桌面Chrome兜底),API翻页拿全量文章列表,逐页导航收割正文(标题/发布时间/摘要/划重点/图片),图片本地化并按原位置插入,自动过滤课程推广广告图(宽幅横幅+字节重复组OCR/二维码鉴定),生成可搜索的index.html总目录。支持用户自定义: ①课程名+URL列表 ②保存总目录命名规则 ③每讲文件夹命名规则(模板变量 {course}/{module}/{date}/{number}/{title})。Use whenever 用户要求抓取/备份/存档得到课程、精英日课类专栏、或提到 dedao.cn 课程内容下载。"
 ---
 
 # 抓取得到APP课程到本地存档
@@ -11,7 +11,7 @@ description: "抓取得到APP(dedao.cn)付费专栏/课程的全部文章到本�
 
 - 用户给出得到课程页 URL(`https://www.dedao.cn/course/detail?id=...`),要求抓取全部文章
 - 用户要求备份/存档得到专栏内容到本地
-- 前提:**用户本机 Chrome 已登录得到**(登录态通过复制 Chrome 配置复用,不需要密码)
+- 前提(二选一):**本机 Chrome 已登录得到**(复制 Chrome 配置复用);或用户能用 Chrome 扩展 **Get cookies.txt LOCALLY** 导出 cookies.txt 注入登录态(WSL/无桌面 Chrome 场景,见第 0 步兜底)
 
 ## 总体流程(六步)
 
@@ -44,6 +44,23 @@ bash scripts/setup_chrome.sh 9223 /tmp/dedao-fetch-work
 ```bash
 uv run scripts/check_login.py --work /tmp/dedao-fetch-work
 ```
+
+### 登录态兜底:cookie 注入(本机无已登录 Chrome / 二维码无法展示时)
+
+适用场景:WSL 或无桌面环境(本机没有已登录的 Chrome 可复制)、扫码登录的二维码无法弹出给用户(无图片查看器时 `xdg-open` 会**静默失败**,终端重渲二维码也不一定可扫)。此时 `setup_chrome.sh` 会自动回退:用 Playwright Chromium(`~/.cache/ms-playwright/chromium-*/`)启动**空白 profile**(无登录态可复制时会打 WARN)。
+
+让用户在**任意一台已登录得到的浏览器**(Chrome/Edge)里装扩展 **Get cookies.txt LOCALLY**,导出 cookies.txt 放到本机(约定路径 `~/.cookie_contexts/cookies.txt`),然后注入:
+
+```bash
+uv run scripts/inject_cookies.py --cookies ~/.cookie_contexts/cookies.txt --port 9223
+```
+
+它只提取 dedao/umiwi/luojisiwei 相关条目,经 CDP `Network.setCookie` 注入调试 Chrome,并自动打开得到首页验证登录(页首不再出现"登录"即成功;失败说明 cookie 过期,让用户重新导出)。
+
+注意事项:
+- cookies.txt 含**完整登录凭据**,绝不提交入库、用完提醒用户删除;
+- 注入前 `check_login.py` 可能显示有 `token`——那是**游客 token**(首次访问自动下发),不代表已登录,以页面有无"登录"入口/注入脚本验证结果为准;
+- 手动杀调试 Chrome 时 `pkill -f <pattern>` 会匹配到执行命令的 shell 自身导致挂死,用 `pgrep -f '[c]hrome-profile'` 式防自匹配写法。
 
 ## 第 1 步:配置规范(config.json)
 
@@ -135,6 +152,7 @@ bash scripts/teardown_chrome.sh /tmp/dedao-fetch-work   # 杀调试Chrome + 删�
 7. 发布时间是 UTC 秒,展示日期按 **北京时间(+8)** 转换。
 8. 图片 CDN(piccdn*.umiwi.com)可直连下载,带 UA+Referer 即可。
 9. 任务结束**必须** teardown(Cookie 副本很敏感)。
+10. **登录二维码展示的坑**:无图片查看器的环境(WSL)里 `xdg-open` 静默失败、有界面 Chrome 也可能因 zygote fork 失败起不来;别死磕扫码展示,直接走第 0 步的 cookie 注入兜底。另注意游客 `token` cookie 首访即有,**不能**作为已登录判据。
 
 ## 产出结构
 
